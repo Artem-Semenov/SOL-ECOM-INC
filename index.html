@@ -4,71 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Russo+One&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles/fullpage.min.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <title>SOL ECOM INC</title>
   </head>
   <body>
-    <div class="wrapper">
-      <main class="page">
-        <div class="page__wrapper">
-
-          <div class="page__screen screen">
-            <div class="screen__content">
-              <div class="screen__body">
-                <div class="screen__image">
-                  <img src="img/home/second_screen_img-l.png" alt="" />
-                </div>
-              </div>
-            </div>
+    <header class="header"></header>
+    <main id="fullpage" class="sections fullpage-wrapper">
+      <div class="section screen">
+        <div class="screen__content">
+          <div class="screen__image">
+            <img src="img/home/second_screen_img-l.png" alt="" />
           </div>
-
-          <div class="page__screen screen">
-            <div class="screen__content">
-              <h1 class="screen__title">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquam, recusandae.
-              </h1>
-              <div class="screen__body">
-                <div class="screen__image">
-                  <img src="img/home/second_screen_img-l.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="page__screen screen">
-            <div class="screen__content">
-              <h1 class="screen__title">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquam, recusandae.
-              </h1>
-              <div class="screen__body">
-                <div class="screen__image">
-                  <img src="img/home/second_screen_img-l.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="page__screen screen">
-            <div class="screen__content">
-              <h1 class="screen__title">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquam, recusandae.
-              </h1>
-              <div class="screen__body">
-                <div class="screen__image">
-                  <img src="img/home/second_screen_img-l.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-        <div class="page__scroll"></div>
-      </main>
+      </div>
+      <div class="section screen">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="fade-up">
+                ABOUT US
+              </h2>
+              <div class="h1 mb-24" data-aos="fade-up">
+                ACCELERATING GROWTH AT THE NEW INTERSECTION OF MEDIA
+              </div>
+              <div class="body mb-16" data-aos="fade-up">
+                Our unique understanding of the intersection of culture,
+                content, data, and technology powers how we build brands out of
+                every moment of connection.
+              </div>
+              <div class="body mb-s-28 mb-l-60" data-aos="fade-up">
+                For today, and for tomorrow.
+              </div>
+              <button class="btn" data-aos="fade-up">
+                WELCOME TO SOL ECOM INC
+              </button>
+            </div>
+          </div>
+          <div class="screen__image">
+            <img src="img/home/second_screen_img-l.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="section screen">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2 class="h4-semiBold-l h4-semiBold-s section-title">JOIN US</h2>
+              <div class="h1 mb-24">WE ARE BORN TO PERFORM, ARE YOU?</div>
+              <div class="body mb-16">
+                We’re looking for you, dream maker. Do you have a passion for
+                advertising, and always asking “What if?” Come work with people
+                who do good, for all.
+              </div>
+              <button class="btn"> EXPLORE NOW</button>
+            </div>
+          </div>
+          <div class="screen__image">
+            <img src="img/home/second_screen_img-l.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <footer class="section screen fp-auto-height footer screen__content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam voluptates
+        nihil minus, eveniet modi eligendi illum magnam assumenda, accusantium
+        vitae quos, facere impedit provident necessitatibus blanditiis
+        voluptatem mollitia autem laborum.
+      </footer>
+    </main>
+    <div class="scroll-icon">
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16 2.95035L6.44526 12.5795L5 11.1206L16 0L27 11.1206L25.5547 12.5795L16 2.95035ZM16 29.0496L25.5547 19.4205L27 20.8794L16 32L5 20.8794L6.44526 19.4205L16 29.0496Z"
+          fill="white" />
+      </svg>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="/js/fullpage.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="/js/app.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
