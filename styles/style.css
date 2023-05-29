@@ -43,6 +43,11 @@ body {
   color: #fff;
   background: var(--black);
 }
+a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
 .h1 {
   font-family: 'Russo One';
 font-style: normal;
@@ -143,6 +148,7 @@ margin-bottom: 24px;
   margin-bottom: 40px;
 }
 .btn {
+  width: fit-content;
   border: 2px solid #FFFFFF;
   padding: 12px;
   text-transform: uppercase;
@@ -153,7 +159,23 @@ font-size: 18px;
 line-height: 120%;
 background: transparent;
 }
+.d-s {
+  display: block;
+}
+.d-l {
+  display: none;
+}
 @media (min-width: 1024px) {
+  .mb-s-40 {
+    margin-bottom: 0;
+  }
+  .d-l {
+    display: block;
+  }
+  .d-s {
+    display: none;
+  }
+
   :root {
     --header-size: 96px;
   }
@@ -208,10 +230,18 @@ background: transparent;
   color: #fff;
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  justify-content: center;
 }
+
 .screen__text_block {
+width: 100%;
 flex: 0 0 auto;
 }
+
+.section__what-we-do .screen__text_block {
+flex: 0 1 auto;
+} 
 
 .screen__image {
   position: absolute;
@@ -262,6 +292,44 @@ cursor: pointer;
 .scroll-icon {
   display: none;
 }
+
+.what-we-do__wrapper {
+  justify-content: center;
+  }
+
+.what-we-do {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.what-we-do__li {
+  border-bottom: 2px solid #FFFFFF;
+}
+.what-we-do__link {
+  padding: 12px;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.header__logo a{
+  font-family: 'Russo One';
+  font-weight: 400;
+  font-size: 31px;
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+  line-height: 95px;
+}
+.heder__burger-btn {
+}
+.header__contact-us {
+}
+.header__nav {
+}
+
 @media (min-width: 1024px) {
   .scroll-icon {
     display: block;
@@ -285,9 +353,52 @@ cursor: pointer;
     padding: 0px 108px;
   } 
   .screen__text {
+    justify-content: flex-start;
+  gap: 0;
   flex-direction: row;
   }
   .screen__text_block {
   flex: 0 0 50%;
   }
+  .section__what-we-do .screen__text_block {
+    flex: 0 1 auto;
+    } 
+    
+  .what-we-do__wrapper {
+    gap: 216px;
+  }
+  .what-we-do {
+    padding-right: 96px;
+  }
 }
+
+
+/* 
+#region animation 
+*/
+
+[data-aos=custom-fade-up] {
+  opacity: 0;
+  -webkit-transition-property: opacity,-webkit-transform;
+  transition-property: opacity,-webkit-transform;
+  -o-transition-property: transform,opacity;
+  transition-property: transform,opacity;
+  transition-property: transform,opacity,-webkit-transform;
+  -webkit-transform: translate3d(0,45px,0);
+  transform: translate3d(0,45px,0);
+  -webkit-transition: opacity 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1);
+  -o-transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1)
+}
+
+[data-aos=custom-fade-up].aos-animate {
+  opacity: 1;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0)
+}
+
+/* 
+#endregion animation 
+*/
