@@ -23,7 +23,7 @@ html,body{
 }
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
-button{cursor: pointer; color: inherit;}
+button{cursor: pointer; color: inherit; background: transparent;}
 button::-moz-focus-inner {padding:0;border:0;}
 a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
   --header-size: 80px;
   --input-color: #B4B2B2;
   --accent: #086211;
-  --burger-body-padding: 500px;
+  --burger-body-padding: 405px;
 }
 body {
   color: #fff;
@@ -167,6 +167,7 @@ background: transparent;
 .d-l {
   display: none;
 }
+
 @media (min-width: 1024px) {
   .mb-s-40 {
     margin-bottom: 0;
@@ -180,9 +181,10 @@ background: transparent;
 
   :root {
     --header-size: 96px;
+  --burger-body-padding: 500px;
   }
 .h1 {
-  font-size: 52px;
+  font-size: 38px;
 }
 .h2 {
   font-size: 40px;
@@ -210,6 +212,13 @@ background: transparent;
 .mb-l-60 {
   margin-bottom: 60px;
 }
+}
+
+@media (min-width: 1300px) {
+.h1 {
+  font-size: 52px;
+}
+
 }
 
 /*---design-system---*/
@@ -287,6 +296,7 @@ cursor: pointer;
 
 .what-we-do__wrapper {
   justify-content: center;
+  max-width: 500px;
   }
 
 .what-we-do {
@@ -296,6 +306,7 @@ gap: 8px;
 }
 .what-we-do__li {
   border-bottom: 2px solid #FFFFFF;
+  max-width: 360px;
 }
 .what-we-do__link {
   padding: 12px;
@@ -444,19 +455,27 @@ gap: 8px;
   padding: 17px 37px;
   cursor: pointer;
 }
+.header__burger-body_arrow svg  {
+  transition: transform .3s ease 0s;
+}
+.header__burger-body_arrow.open svg {
+  transform: rotate(180deg);
+}
 .header__burger-body_sub-list {
+  width: 100%;
   position: absolute;
-  top: 0;
-  left: var(--burger-body-padding);
-  height: 100%;
+  top: var(--burger-body-padding);
   transition: all ease .4s;
   background: #1B1B1D;
-  width: 0px;
   overflow: hidden;
+  left: 0;
+  height: 0;
 }
-.header__burger-body_li_arrow:hover .header__burger-body_sub-list {
-  width: calc(100% - var(--burger-body-padding))
+
+.header__burger-body_sub-list.open {
+  height: calc(100% - var(--burger-body-padding));
 }
+
 @media (min-width: 1024px) {
   .header__logo a{
     letter-spacing: 0.02em;
@@ -515,7 +534,8 @@ gap: 8px;
 
   }
    .screen__content {
-    padding: 0px 108px;
+    padding: 0px 80px;
+
   } 
   .screen__text {
     justify-content: flex-start;
@@ -530,13 +550,58 @@ gap: 8px;
     } 
     
   .what-we-do__wrapper {
-    gap: 216px;
+    gap: 70px;
+max-width: 100%;
   }
   .what-we-do {
-    padding-right: 96px;
+  }
+  .header__burger-body_sub-list {
+  width: 0;
+  top: 0;
+  left: var(--burger-body-padding);
+  height: 100%;
+
+  }
+  .header__burger-body_li_arrow:hover .header__burger-body_sub-list {
+    width: calc(100% - var(--burger-body-padding))
+  }
+
+  .header__burger-body_arrow svg  {
+    transform: rotate(90deg);
+  }
+  .header__burger-body_arrow:hover svg {
+    transform: rotate(270deg);
+  }
+
+}
+
+@media (min-width: 1300px) {
+  .screen__content {
+    padding: 0px 108px;
+}
+.what-we-do__wrapper {
+  gap: 150px;
+}
+.what-we-do {
+  padding-right: 96px;
+}
+}
+
+@media (min-width: 1440px) {
+  .what-we-do__wrapper {
+    gap: 216px;
   }
 }
 
+@media (max-height: 700px) and (max-width: 1024px ) {
+
+  .body, .body-bold {
+    font-size: 16px;
+  }
+  .btn, .what-we-do__link {
+    padding: 8px 12px;
+  }
+}
 
 /* 
 #region animation 
@@ -564,6 +629,27 @@ gap: 8px;
   transform: translateZ(0)
 }
 
+[data-aos=custom-animation-up] {
+  opacity: 0;
+  -webkit-transition-property: opacity,-webkit-transform;
+  transition-property: opacity,-webkit-transform;
+  -o-transition-property: transform,opacity;
+  transition-property: transform,opacity;
+  transition-property: transform,opacity,-webkit-transform;
+  -webkit-transform: translate3d(0,45px,0);
+  transform: translate3d(0,45px,0);
+  -webkit-transition: opacity 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1);
+  -o-transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1);
+  transition: opacity 1s cubic-bezier(.6,0,.2,1),transform 1s cubic-bezier(.6,0,.2,1),-webkit-transform 1s cubic-bezier(.6,0,.2,1)
+}
+
+[data-aos=custom-animation-up].aos-animate {
+  opacity: 1;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0)
+}
 /* 
 #endregion animation 
 */
