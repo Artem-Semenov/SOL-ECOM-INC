@@ -144,6 +144,9 @@ margin-bottom: 24px;
 .mb-16 {
   margin-bottom: 16px;
 }
+.mb-s-24 {
+  margin-bottom: 24px;
+}
 .mb-s-28 {
   margin-bottom: 28px;
 }
@@ -160,6 +163,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 18px;
 background: transparent;
+letter-spacing: 0.02em;
 }
 .d-s {
   display: block;
@@ -168,6 +172,9 @@ background: transparent;
   display: none;
 }
 
+.mw-456 {
+  max-width: 456px;
+}
 @media (min-width: 1024px) {
   .mb-s-40 {
     margin-bottom: 0;
@@ -209,6 +216,10 @@ background: transparent;
 .section-title {
   margin-bottom: 80px;
 }
+.mb-l-32 {
+  margin-bottom: 32px;
+}
+
 .mb-l-60 {
   margin-bottom: 60px;
 }
@@ -255,11 +266,15 @@ flex: 0 1 auto;
 .screen__image {
   position: absolute;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  height: calc(100% - var(--header-size));
+  bottom: 0;
+  right: 0;
 }
 
+.screen__image video {
+  width: 100%;
+  height: 100%;
+}
 .screen__image img{
   position: absolute;
   width: 100%;
@@ -476,6 +491,13 @@ gap: 8px;
   height: calc(100% - var(--burger-body-padding));
 }
 
+.sub-list__content {
+  height: 100%;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 @media (min-width: 1024px) {
   .header__logo a{
     letter-spacing: 0.02em;
@@ -550,7 +572,9 @@ gap: 8px;
     flex: 0 1 auto;
    
     } 
-    
+    .what-we-do__list_block {
+      padding-top: 108px;
+    }
   .what-we-do__wrapper {
     gap: 70px;
 max-width: 100%;
@@ -575,7 +599,16 @@ justify-content: space-between;
   .header__burger-body_arrow:hover svg {
     transform: rotate(270deg);
   }
-
+  .screen__image {
+    position: absolute;
+    width: calc(100% - var(--header-size));
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+  .sub-list__content {
+    justify-content: center;
+  }
 }
 
 @media (min-width: 1300px) {

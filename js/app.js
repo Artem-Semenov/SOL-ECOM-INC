@@ -13,8 +13,11 @@ new fullpage("#fullpage", {
   onLeave: (origin, destination, direction, trigger) => {
     const Nextnodes = destination.item.querySelectorAll("[data-aos]");
     const previousNodes = origin.item.querySelectorAll("[data-aos]");
-    console.log(origin);
+    const video = destination.item.querySelector("video");
+    console.log(destination.item);
+    console.log(video);
     if (destination.index !== fullpage_api.test.Hn.length - 1) {
+      if (video) video.play();
       previousNodes.forEach((node) => {
         node.classList.remove("aos-animate");
       });
