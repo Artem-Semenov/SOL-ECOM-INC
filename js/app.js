@@ -79,3 +79,73 @@ const addTogglingOnMobile = () => {
 
 window.addEventListener("resize", addTogglingOnMobile);
 addTogglingOnMobile();
+
+//form
+try {
+  const form = document.getElementById("form");
+  const nameInput = form.name;
+  const surname = form.surname;
+  const job = form.job;
+  const email = form.email;
+  const phone = form.phone;
+  const company = form.company;
+  const location = form.location;
+  const comment = form.comment;
+  const agreement = form.agreement;
+
+  /*   console.log(`form :`, form);
+  console.log(`nameInput :`, nameInput);
+  console.log(`surname :`, surname);
+  console.log(`job :`, job);
+  console.log(`email :`, email);
+  console.log(`phone :`, phone);
+  console.log(`company :`, company);
+  console.log(`location :`, location);
+  console.log(`comment :`, comment);
+  console.log(`agreement :`, agreement); */
+
+  form.addEventListener("submit", (e) => submitForm(e));
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    if (!isValid()) return;
+  };
+
+  const isValid = () => {
+    const [
+      nameValue,
+      surnameValue,
+      jobValue,
+      emailValue,
+      phoneValue,
+      companyValue,
+      locationValue,
+      commentValue,
+      agreementValue,
+    ] = [
+      nameInput.value,
+      surname.value,
+      job.value,
+      email.value,
+      phone.value,
+      company.value,
+      location.value,
+      comment.value,
+      agreement.checked,
+    ];
+
+    console.log(
+      nameValue,
+      surnameValue,
+      jobValue,
+      emailValue,
+      phoneValue,
+      companyValue,
+      locationValue,
+      commentValue,
+      agreementValue
+    );
+  };
+} catch (e) {
+  console.log(e);
+}
