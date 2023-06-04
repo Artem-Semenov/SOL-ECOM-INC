@@ -30,6 +30,9 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
 /*--------------------*/
 
 /*---design-system---*/
@@ -38,6 +41,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
   --header-size: 80px;
   --input-color: #B4B2B2;
   --accent: #086211;
+  --error: #FF7B7B;
   --burger-body-padding: 405px;
 }
 body {
@@ -524,6 +528,16 @@ color: var(--input-color)
 width: 100%;
 padding: 8px 0;
 }
+.form__input input.error {
+  border-color: var(--error);
+}
+.form__message {
+  font-size: 14px;
+  color: var(--error);
+  height: 0px;
+  overflow: hidden;
+  transition: all ease .3s;
+}
 .form__textarea {
   width: 100%;
   display: flex;
@@ -540,7 +554,6 @@ padding: 8px;
   height: 40px;
   position: relative;
   margin-right: -8px;
-  margin-bottom: 14px;
 }
 .form__checkbox label {
 padding-left: 53px;
