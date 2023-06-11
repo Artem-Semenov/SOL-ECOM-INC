@@ -64,6 +64,11 @@ const subMenuBtn = document.querySelector(".header__burger-body_arrow");
 const togglesubMenuOpen = () => {
   subMenuBtn.classList.toggle("open");
   subMenuBody.classList.toggle("open");
+  if (subMenuBody.classList.contains("open")) {
+    subMenuBody.style.height = subMenuBody.scrollHeight + "px";
+  } else {
+    subMenuBody.style.height = null;
+  }
 };
 const addTogglingOnMobile = () => {
   if (window.innerWidth < 1024) {
@@ -265,7 +270,8 @@ function createCookieNode() {
   wrapper.appendChild(body);
 
   return wrapper;
-  {/* <div class="cookies">
+  {
+    /* <div class="cookies">
 <div class="cookies__body">
   <p class="h5">
     By using this website, you agree to our use of cookies. We use cookies
@@ -274,7 +280,8 @@ function createCookieNode() {
   </p>
   <button class="btn h5">ACCEPT</button>
 </div>
-</div>  */}
+</div>  */
+  }
 }
 
 function onAcceptCookie() {
