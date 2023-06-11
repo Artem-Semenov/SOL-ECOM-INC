@@ -10,6 +10,8 @@ new fullpage("#fullpage", {
   fitToSectionDelay: 1000,
   verticalCentered: true,
   normalScrollElements: ".form__wrapper, .header__burger-body",
+  fixedElements: "#header, .scroll-icon",
+  // anchors: ["firstPage", "secondPage", "thirdPafe", "page4"],
 
   onLeave: (origin, destination, direction, trigger) => {
     const Nextnodes = destination.item.querySelectorAll("[data-aos]");
