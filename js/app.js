@@ -9,7 +9,7 @@ new fullpage("#fullpage", {
   fitToSection: true,
   fitToSectionDelay: 1000,
   verticalCentered: true,
-  normalScrollElements: ".form__wrapper",
+  normalScrollElements: ".form__wrapper, .header__burger-body",
 
   onLeave: (origin, destination, direction, trigger) => {
     const Nextnodes = destination.item.querySelectorAll("[data-aos]");

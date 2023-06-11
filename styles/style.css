@@ -782,10 +782,12 @@ margin-bottom: 24px;
   }
 .footer__nav_list {
 flex-direction: row;
-gap: 50px;
+gap: 40px;
 } 
-
-
+.footer__content {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
 .footer__footage {
   flex-direction: row;
   justify-content: space-between;
@@ -796,10 +798,7 @@ gap: 50px;
   .screen__content {
     padding: 0px 108px;
 }
-.footer__content {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
+
 .what-we-do__wrapper {
   gap: 150px;
 }
@@ -812,6 +811,15 @@ gap: 50px;
   .what-we-do__wrapper {
     gap: 216px;
   }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px ) {
+  .body-semiBold {
+    font-size: 16px;
+  }
+  .footer__nav_list {
+    gap: 20px;
+    } 
 }
 
 @media (max-height: 700px) and (max-width: 1024px ) {
