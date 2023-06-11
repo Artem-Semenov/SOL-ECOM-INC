@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="shortcut icon"
+      href="/img/icons/favicon.svg"
+      type="image/x-icon" />
+    <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Russo+One&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -149,7 +153,8 @@
       <!--  -->
       <div class="section screen section__what-we-do">
         <div class="screen__content">
-          <div class="screen__text what-we-do__wrapper section__form margin-auto">
+          <div
+            class="screen__text what-we-do__wrapper section__form margin-auto">
             <div class="screen__text_block">
               <h2
                 class="h1 mb-l-32"
@@ -166,35 +171,64 @@
               <div class="form__wrapper">
                 <form class="form" id="form">
                   <div class="form__input">
-                    <input type="text" name="name" placeholder="Name Surname" />
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="job" placeholder="Job title" />
-                  </div>
-                  <div class="form__input">
-                    <input type="text" name="email" placeholder="Email" />
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name Surname"
+                      tabindex="1" />
                   </div>
                   <div class="form__input">
                     <input
                       type="text"
+                      name="job"
+                      placeholder="Job title"
+                      tabindex="2" />
+                  </div>
+                  <div class="form__input">
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Email"
+                      tabindex="3" />
+                  </div>
+                  <div class="form__input">
+                    <input
+                      type="tel"
                       name="phone"
-                      placeholder="Phone number" />
+                      placeholder="Phone number"
+                      tabindex="4" />
                   </div>
                   <div class="form__input">
-                    <input type="text" name="company" placeholder="Company" />
+                    <input
+                      type="text"
+                      name="company"
+                      placeholder="Company"
+                      tabindex="5" />
                   </div>
                   <div class="form__input">
-                    <input type="text" name="location" placeholder="Location" />
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Location"
+                      tabindex="6" />
                   </div>
                   <fieldset class="form__textarea">
                     <label for="comment">Comment</label>
-                    <textarea name="comment" id="comment" rows="4"></textarea>
+                    <textarea
+                      name="comment"
+                      id="comment"
+                      rows="4"
+                      tabindex="7"></textarea>
                   </fieldset>
                   <div class="form__checkbox">
                     <label for="agreement"
                       >I agree to the Terms & Conditions</label
                     >
-                    <input type="checkbox" name="agreement" id="agreement" />
+                    <input
+                      type="checkbox"
+                      name="agreement"
+                      id="agreement"
+                      tabindex="8" />
 
                     <div class="checkbox__check">
                       <svg
@@ -211,7 +245,9 @@
                   </div>
                   <div class="form__message"></div>
                   <div class="form__btn">
-                    <button type="submit" class="btn">SEND MESSAGE</button>
+                    <button type="submit" class="btn" tabindex="9">
+                      SEND MESSAGE
+                    </button>
                   </div>
                 </form>
               </div>
