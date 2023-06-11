@@ -229,3 +229,90 @@ function onKeyPress(e) {
     isCheckboxChecked.apply(agreement);
   }
 }
+
+//cookie
+function getCookie(name) {
+  let matches = document.cookie.match(
+    new RegExp(
+      "(?:^|; )" +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+        "=([^;]*)"
+    )
+  );
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function createCookieNode() {
+  const wrapper = document.createElement("div");
+  const body = document.createElement("div");
+  const p = document.createElement("p");
+  const button = document.createElement("button");
+
+  button.classList.add("btn", "h5");
+  p.classList.add("h5");
+  body.classList.add("cookies__body");
+  wrapper.classList.add("cookies");
+
+  p.textContent = `By using this website, you agree to our use of cookies. We use cookies
+  to provide you with a great experience and to help our website run
+  effectively.`;
+  button.textContent = "ACCEPT";
+
+  button.addEventListener("click", onAcceptCookie);
+
+  body.appendChild(p);
+  body.appendChild(button);
+  wrapper.appendChild(body);
+
+  return wrapper;
+}
+
+function onAcceptCookie() {
+  const cookieeNode = document.querySelector(".cookies");
+  console.log("accepted");
+  const guid = generateGuid();
+  document.cookie = `_guid=${guid}`;
+  cookieeNode.classList.remove("show");
+  setTimeout(() => {
+    cookieeNode.remove();
+  }, 500);
+}
+
+function generateGuid() {
+  function generateGuidPart() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return (
+    generateGuidPart() +
+    generateGuidPart() +
+    "-" +
+    generateGuidPart() +
+    "-" +
+    generateGuidPart() +
+    "-" +
+    generateGuidPart() +
+    "-" +
+    generateGuidPart() +
+    generateGuidPart() +
+    generateGuidPart()
+  );
+}
+
+function checkForCookie() {
+  if (!getCookie("_guid")) {
+    document.body.appendChild(createCookieNode());
+    setTimeout(() => {
+      document.querySelector(".cookies").classList.add("show");
+    }, 1);
+  }
+}
+
+window.addEventListener("load", () => {
+  console.log(`addEventListener cookie`);
+  setTimeout(() => {
+    checkForCookie();
+  }, 3000);
+});
+
