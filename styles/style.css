@@ -168,7 +168,6 @@ margin-bottom: 24px;
 .btn {
   width: fit-content;
   border: 2px solid #FFFFFF;
-  padding: 12px;
   text-transform: uppercase;
   font-family: 'Montserrat';
 font-style: normal;
@@ -177,6 +176,13 @@ font-size: 18px;
 line-height: 1;
 background: transparent;
 letter-spacing: 0.02em;
+}
+.link, .btn {
+  padding: 12px;
+  transition: background-color ease .3s;
+}
+.link:hover, .btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .d-s {
   display: block;
@@ -331,7 +337,11 @@ cursor: pointer;
   justify-content: center;
   max-width: 500px;
   }
-
+  .form__block_wrapper {
+height: fit-content;
+    overflow: hidden auto;
+    padding: 10px 0 20px 0;
+  } 
 .what-we-do {
 display: flex;
 flex-direction: column;
@@ -341,9 +351,7 @@ gap: 8px;
   border-bottom: 2px solid #FFFFFF;
   max-width: 360px;
 }
-.what-we-do__link {
-  padding: 12px;
-}
+
 .header {
   position: fixed;
   width: 100%;
@@ -363,13 +371,14 @@ gap: 8px;
   height: 100%;
 }
 
-.header__logo a{
+.header__logo .logo {
+  line-height: var(--header-size);
+}
+.logo {
   font-family: 'Russo One';
   font-weight: 400;
   font-size: 23px;
-  line-height: var(--header-size);
 }
-
 .header__burger-btn {
   cursor: pointer;
   position: relative;
@@ -605,21 +614,60 @@ align-items: center;
   opacity: 0;
   position: absolute;
 }
-.form__btn {
+
+.footer__content {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
-.btn {
+.footer__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
 }
+.footer__contacts {
+
+}
+.footer_logo {
+margin-bottom: 16px;
+}
+
+.footer__contacts_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+.footer__nav {
+}
+.footer__nav_list {
+  display: flex;
+flex-direction: column;
+  gap: 24px;
+}
+.footer__footage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+ 
+}
+.footer_reserved, .footer_terms a {
+  color: var(--input-color);
+}
+
 @media (min-width: 1024px) {
-  .header__logo a{
-    letter-spacing: 0.02em;
+  .header__logo .logo{
     width: 96px;
-    font-family: 'Russo One';
-    font-weight: 400;
-    font-size: 31px;
     writing-mode: vertical-rl;
     transform: rotate(-180deg);
     line-height: var(--header-size);
     padding-bottom: 32px;
+  }
+  .logo {
+    font-family: 'Russo One';
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    font-size: 31px;
   }
   .header__contact-us {
     letter-spacing: 0.02em;
@@ -667,9 +715,13 @@ align-items: center;
 
   }
    .screen__content {
+    max-width: 1344px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     padding: 0px 80px;
-
   } 
+
   .screen__text {
     justify-content: flex-start;
   gap: 0;
@@ -693,8 +745,6 @@ padding-top: 0;
     gap: 70px;
 max-width: 100%;
 justify-content: space-between;
-  }
-  .what-we-do {
   }
   .header__burger-body_sub-list {
   width: 0;
@@ -723,11 +773,32 @@ justify-content: space-between;
   .sub-list__content {
     justify-content: center;
   }
+
+  .footer__body {
+flex-direction: row;
+justify-content: space-between;
+margin-bottom: 24px;
+
+  }
+.footer__nav_list {
+flex-direction: row;
+gap: 50px;
+} 
+
+
+.footer__footage {
+  flex-direction: row;
+  justify-content: space-between;
+}
 }
 
 @media (min-width: 1300px) {
   .screen__content {
     padding: 0px 108px;
+}
+.footer__content {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 .what-we-do__wrapper {
   gap: 150px;

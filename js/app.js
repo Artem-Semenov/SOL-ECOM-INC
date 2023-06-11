@@ -9,6 +9,7 @@ new fullpage("#fullpage", {
   fitToSection: true,
   fitToSectionDelay: 1000,
   verticalCentered: true,
+  normalScrollElements: ".form__wrapper",
 
   onLeave: (origin, destination, direction, trigger) => {
     const Nextnodes = destination.item.querySelectorAll("[data-aos]");
@@ -114,9 +115,12 @@ function submitForm(e) {
   formData.append("company", company.value);
   formData.append("locationInput", locationInput.value);
   formData.append("comment", comment.value);
-  formData.append("agreement", `agreement ${agreement.checked ? '' : 'was NOT '}accepted`);
+  formData.append(
+    "agreement",
+    `agreement ${agreement.checked ? "" : "was NOT "}accepted`
+  );
 
-  console.log('form valid', formData)
+  console.log("form valid", formData);
 }
 
 function isValid() {
@@ -211,5 +215,17 @@ function showMessage(show) {
   }
 }
 
+agreement.addEventListener("focus", (e) => {
+  document.addEventListener("keypress", onKeyPress);
+});
+agreement.addEventListener("blur", (e) => {
+  document.removeEventListener("keypress", onKeyPress);
+});
 
-agreement.addEventListener('focus', () => {console.log('pizda')})
+function onKeyPress(e) {
+  e.preventDefault();
+  if (e.key === "Enter") {
+    agreement.checked = !agreement.checked;
+    isCheckboxChecked.apply(agreement);
+  }
+}
