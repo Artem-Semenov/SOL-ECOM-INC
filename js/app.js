@@ -265,11 +265,20 @@ function createCookieNode() {
   wrapper.appendChild(body);
 
   return wrapper;
+  {/* <div class="cookies">
+<div class="cookies__body">
+  <p class="h5">
+    By using this website, you agree to our use of cookies. We use cookies
+    to provide you with a great experience and to help our website run
+    effectively.
+  </p>
+  <button class="btn h5">ACCEPT</button>
+</div>
+</div>  */}
 }
 
 function onAcceptCookie() {
   const cookieeNode = document.querySelector(".cookies");
-  console.log("accepted");
   const guid = generateGuid();
   document.cookie = `_guid=${guid}`;
   cookieeNode.classList.remove("show");
@@ -310,9 +319,7 @@ function checkForCookie() {
 }
 
 window.addEventListener("load", () => {
-  console.log(`addEventListener cookie`);
   setTimeout(() => {
     checkForCookie();
   }, 3000);
 });
-

@@ -181,9 +181,7 @@ letter-spacing: 0.02em;
   padding: 12px;
   transition: background-color ease .3s;
 }
-.link:hover, .btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
+
 .d-s {
   display: block;
 }
@@ -543,6 +541,7 @@ color: var(--input-color)
 }
 .form__input input {
   border-bottom:  2px solid #FFFFFF;
+  border-radius: 0;
   line-height: 1;
   width: 100%;
 padding: 8px 0;
@@ -683,6 +682,9 @@ flex-direction: column;
   align-items: center;
 }
 @media (min-width: 1024px) {
+  .link:hover, .btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
   .header__logo .logo{
     width: 96px;
     writing-mode: vertical-rl;
