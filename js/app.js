@@ -9,7 +9,7 @@ new fullpage("#fullpage", {
   fitToSection: true,
   fitToSectionDelay: 1000,
   verticalCentered: true,
-  normalScrollElements: ".form__wrapper, .header__burger-body",
+  normalScrollElements: ".form__wrapper, .header__burger-body, .careers-popup",
   fixedElements: "#header, .scroll-icon",
   // anchors: ["firstPage", "secondPage", "thirdPafe", "page4"],
 
@@ -332,3 +332,22 @@ window.addEventListener("load", () => {
     checkForCookie();
   }, 3000);
 });
+
+//careers accordeon
+
+const triggers = document.querySelectorAll(".careers__link_svg-wrapper");
+triggers.forEach((el) => el.addEventListener("click", onAccordTriggerClick));
+
+function onAccordTriggerClick() {
+  console.log(this);
+  const accordBody = this.parentElement.nextElementSibling;
+  console.log(accordBody);
+
+  this.classList.toggle("open");
+
+  if (this.classList.contains("open")) {
+    accordBody.style.height = accordBody.scrollHeight + "px";
+  } else {
+    accordBody.style.height = null;
+  }
+}
