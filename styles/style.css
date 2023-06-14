@@ -756,6 +756,7 @@ flex-direction: column;
   right: 0;
   bottom: 0;
   padding-top: var(--header-size);
+  display: none;
 }
 .careers__body {
   padding: 26px 16px;
