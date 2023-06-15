@@ -543,13 +543,48 @@ function onCareersPopupTriggersClick(e) {
     "#nodeToInsertArticle"
   );
 
+  const nodeToInsertArtickleMobile1 = careersJobPopup.querySelector(
+    "#nodeToInsertArticle1"
+  );
+  const nodeToInsertArtickleMobile2 = careersJobPopup.querySelector(
+    "#nodeToInsertArticle2"
+  );
+  const nodeToInsertArtickleMobile3 = careersJobPopup.querySelector(
+    "#nodeToInsertArticle3"
+  );
+
+  nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
+  nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
   if (window.innerWidth > 1023) {
-    nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
-    nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
-    nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
-
     // console.log(triggers)
-
     // triggers[0].click()
+  } else {
+    nodeToInsertArtickleMobile1.innerHTML =
+      "<ul>" +
+      jobsData[clickedJobId].willDo
+        .map(
+          (el) => `<li class="h5 body-l">
+ ${el} </li>`
+        )
+        .join("") +
+      "</ul>";
+    nodeToInsertArtickleMobile2.innerHTML =
+      "<ul>" +
+      jobsData[clickedJobId].important
+        .map(
+          (el) => `<li class="h5 body-l">
+ ${el} </li>`
+        )
+        .join("") +
+      "</ul>";
+    nodeToInsertArtickleMobile3.innerHTML =
+      "<ul>" +
+      jobsData[clickedJobId].offer
+        .map(
+          (el) => `<li class="h5 body-l">
+ ${el} </li>`
+        )
+        .join("") +
+      "</ul>";
   }
 }
