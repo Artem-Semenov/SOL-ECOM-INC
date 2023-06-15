@@ -1,4 +1,132 @@
 "use strict";
+const jobsData = {
+  1: {
+    title: "ACCOUNT MANAGER (AFFILIATE)",
+    desc: "Due to active development, we are looking for an Affiliate Manager who has ambitious goals, is an expert in his field and will be able to strengthen our team in new verticals.",
+    willDo: [
+      "To develop one of the areas of Crypto/Sweepstakes.",
+      "Build vertical development strategies, promote verticals with the PR department and look for new platforms in the info space.",
+      "Analyze competitors and trends in affiliate marketing.",
+      "Analyze the effectiveness of advertising campaigns.",
+      "Optimize traffic sources, track the increase in traffic volumes.",
+      "Configure all necessary segments that partners may need.",
+      "Process incoming applications and registrations from partners.",
+      "Control traffic.",
+      "Keep documentation and reports.",
+    ],
+    important: [
+      "Experience in the position of Affiliate Manager from 2 years.",
+      "Experience in Dating/Gambling/Crypto",
+      "English — Upper-Intermediate+",
+      "Understanding revenue share, CPA, CPL, CPI, CPM and CPC.",
+      "Experience with popular tracking systems (Cake, Impact, Keitaro, RedTrack SwissSoft, Voluum, Binom, etc.) and the ability to configure postbacks.",
+      "Experienced user of Google Docs & Google Sheets.",
+      "Understanding of basic metrics and ability to qualitatively analyze traffic, experience in purchasing traffic.",
+      "Excellent negotiation skills.",
+      "Stress resistance, multitasking, result-oriented.",
+      "The ability to approach the solution of tasks in a versatile and comprehensive manner.",
+    ],
+    offer: [
+      "Remote work or hybrid work arrangement (office and remote).",
+      "8-hour working day, Monday to Friday, with flexible start and end times.",
+      "Competitive compensation, performance reviews, and bonuses.",
+      "Generous paid vacation of 24 days and paid sick leave.",
+      "Minimal bureaucracy and opportunities to influence product development.",
+      "Robust referral program to reward professional connections.",
+    ],
+  },
+  2: {
+    title: "JUNIOR PROJECT MANAGER",
+    desc: "At Sol Ecom Inc, we specialize in developing a revolutionary fintech product that is unparalleled in the market. By joining us, you will have the opportunity to engage in fair competition with these industry players.",
+    willDo: [
+      "Assisting the senior project manager in planning and executing marketing campaigns.",
+      "Coordinating with various departments to ensure timely delivery of project milestones.",
+      "Conducting market research and analyzing data to identify trends and opportunities.",
+      "Developing project timelines and budgets, and monitoring progress against them.",
+      "Communicating project updates and status reports to stakeholders.",
+    ],
+    important: [
+      "Project management: The candidate should have a strong understanding of project management methodologies and be able to manage multiple projects simultaneously.",
+      "Communication: The candidate should have excellent communication skills, both written and verbal, and be able to effectively communicate with team members, stakeholders, and clients.",
+      "Analytical thinking: The candidate should be able to analyze data and make informed decisions based on that data.",
+      "Problem-solving: The candidate should be able to identify problems and come up with creative solutions to solve them.",
+      "Time management: The candidate should be able to manage their time effectively and prioritize tasks to meet deadlines.",
+    ],
+    offer: [
+      "Remote work or hybrid work arrangement (office and remote).",
+      "8-hour working day, Monday to Friday, with flexible start and end times.",
+      "Competitive compensation, performance reviews, and bonuses.",
+      "Generous paid vacation of 24 days and paid sick leave.",
+      "Minimal bureaucracy and opportunities to influence product development.",
+      "Robust referral program to reward professional connections.",
+    ],
+  },
+  3: {
+    title: "MANAGEMENT REPORTING SPECIALIST",
+    desc: "Due to active company growth, we are currently seeking a Management Reporting Specialist. You will be responsible for independently managing the project from start to finish. We value initiative and its manifestation in order to help the project become better.",
+    willDo: [
+      "Organization and implementation of financial accounting, monitoring the company's financial activities;",
+      "Development and implementation of financial strategies and policies of the company; Recording business transactions in management accounting;",
+      "Control of mutual settlements, reconciliation statements, provision of reports on accounts payable and accounts receivable, etc.;",
+      "Control of calculations and reflection of incentive programs;",
+      "Control of accounting, analysis of calculations, optimization of expenses for each department of the company;",
+      "Processing of bank statements;",
+      "Preparation of reports on balances in accounts and cash and other reports related to cash flow;",
+      "Preparation of financial and management reports based on the performance of each department of the company (Cash Flow, Profit and Loss, Balance Sheet, Dashboard, KPI, ad-hoc reporting for shareholders);",
+    ],
+    important: [
+      "Education: finance, accounting, auditing, economics;",
+      "Work experience as an accountant, economist (preferably in an IT company) for at least 5 years;",
+      "Excellent knowledge of 1C, MS Excel, Google Sheets;",
+      "Ability to perform calculations, analyses, and forecasts;",
+      "Experience in accounting: processing primary data, accurately reflecting transactions, preparing reports, calculating and processing payroll.",
+      "Ability to organize independent work and work in a team;",
+      "Resilience to stress;",
+      "Prioritization of tasks;",
+      "Analytical and logical thinking;",
+      "Ability to work with large volumes of data and analyze them;",
+      "Ability to identify key points, trends, and tendencies in a data stream;",
+      "Utilization of cause-and-effect relationships.",
+    ],
+    offer: [
+      "Office-based work;",
+      "8-hour workday;",
+      "Paid vacation of 24 calendar days;",
+      "Opportunity to influence the project's development;",
+      "Advancement of your professional skills.",
+    ],
+  },
+  4: {
+    title: "SYSTEM ANALYST",
+    desc: "As a System Analyst, you will play a crucial role in analyzing, designing, and implementing innovative technology solutions to meet our organization's needs.",
+    willDo: [
+      "Conduct in-depth analysis of existing systems, processes, and data to identify areas for improvement and optimization.",
+      "Design and develop effective and efficient system solutions, utilizing industry best practices and emerging technologies.",
+      "Perform system testing and quality assurance to ensure the successful implementation and integration of new solutions.",
+      "Provide ongoing support and maintenance of existing systems, troubleshooting issues and implementing necessary enhancements.",
+      "Stay up-to-date with technological advancements and industry trends to continuously improve system performance and reliability.",
+    ],
+    important: [
+      "Proven experience as a System Analyst or similar role, demonstrating the ability to analyze complex systems and translate business requirements into technical solutions.",
+      "Strong knowledge of system development methodologies, such as Agile or Waterfall.",
+      "Proficiency in conducting system analysis, data modeling, and process mapping.",
+      "Familiarity with relational databases and SQL for data extraction and analysis.",
+      "Excellent problem-solving and critical thinking skills.",
+      "Strong communication and collaboration abilities, with the capacity to effectively liaise with stakeholders at all levels of the organization.",
+      "Attention to detail and a commitment to delivering high-quality work.",
+    ],
+    offer: [
+      "A challenging and rewarding work environment with opportunities for professional growth and development.",
+      "Competitive salary and comprehensive benefits package.",
+      "Access to cutting-edge technologies and tools to enhance your skills and expertise.",
+      "Collaborative and inclusive company culture that values teamwork and diversity.",
+      "Work-life balance, with flexible working hours and the possibility of remote work.",
+      "Supportive management and a strong commitment to employee well-being.",
+      "Exciting projects and the chance to make a real impact in the organization and beyond.",
+    ],
+  },
+};
+
 new fullpage("#fullpage", {
   licenseKey: "gplv3-license",
   keyboardScrolling: true,
@@ -334,20 +462,94 @@ window.addEventListener("load", () => {
 });
 
 //careers accordeon
+const nodeToInsertArticleOnDesctop = document.querySelector(
+  "#nodeToInsertArticleOnDesctop"
+);
+let openedJob;
 
 const triggers = document.querySelectorAll(".careers__link_svg-wrapper");
-triggers.forEach((el) => el.addEventListener("click", onAccordTriggerClick));
+triggers.forEach((el) =>
+  el.addEventListener("click", (e) => onAccordTriggerClick.call(el, e))
+);
+const rightSideContentDesctop = document.querySelector(
+  ".careers__right-side__content .careers__li__job_desc"
+);
 
-function onAccordTriggerClick() {
-  console.log(this);
+function onAccordTriggerClick(e) {
+  const clickedSection = e.target.dataset.section;
   const accordBody = this.parentElement.nextElementSibling;
-  console.log(accordBody);
 
   this.classList.toggle("open");
+  if (rightSideContentDesctop) {
+    rightSideContentDesctop.classList.toggle("open");
+  }
 
   if (this.classList.contains("open")) {
-    accordBody.style.height = accordBody.scrollHeight + "px";
+    if (accordBody) {
+      accordBody.style.marginTop = "10px";
+      if (accordBody.classList.contains("careers__li__job_desc")) {
+        this.parentElement.parentElement.classList.toggle("open", true);
+      }
+      accordBody.style.height = accordBody.scrollHeight + 10 + "px";
+    }
   } else {
-    accordBody.style.height = null;
+    if (accordBody) {
+      accordBody.style.marginTop = "0px";
+      if (accordBody.classList.contains("careers__li__job_desc")) {
+        this.parentElement.parentElement.classList.toggle("open", false);
+      }
+      accordBody.style.height = null;
+    }
+  }
+  if (window.innerWidth > 1023) {
+    nodeToInsertArticleOnDesctop.innerHTML =
+      "<ul>" +
+      jobsData[openedJob][clickedSection]
+        .map(
+          (el) => `<li class="h5 body-l">
+   ${el} </li>`
+        )
+        .join("") +
+      "</ul>";
+  }
+}
+
+//careers pop-up
+
+const careersPopupTriggers = document.querySelectorAll(
+  ".triggerOpenFullJobDecsriptin"
+);
+const careersJobPopup = document.getElementById("careers-popup");
+const careersPopupCloseBtn = document.querySelector(".careers__close-btn");
+
+careersPopupTriggers.forEach((el) => {
+  el.addEventListener("click", onCareersPopupTriggersClick);
+});
+
+careersPopupCloseBtn.addEventListener("click", (e) => {
+  careersJobPopup.classList.remove("open");
+});
+
+function onCareersPopupTriggersClick(e) {
+  const clickedJobId = +e.target.dataset.job;
+  openedJob = clickedJobId;
+  console.log(e);
+  console.log(clickedJobId);
+  careersJobPopup.classList.toggle("open", true);
+
+  const nodeToInsertTitle = careersJobPopup.querySelector("#nodeToInsertTitle");
+  const nodeToInsertDesc = careersJobPopup.querySelector("#nodeToInsertDesc");
+  const nodeToInsertArticle = careersJobPopup.querySelector(
+    "#nodeToInsertArticle"
+  );
+
+  if (window.innerWidth > 1023) {
+    nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
+    nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
+    nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
+
+    // console.log(triggers)
+
+    // triggers[0].click()
   }
 }
