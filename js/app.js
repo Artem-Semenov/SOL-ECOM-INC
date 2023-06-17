@@ -598,6 +598,13 @@ function onCareersPopupTriggersClick(e) {
   }
 }
 
+document.addEventListener('click', e => {
+   if (e.target.classList.contains('careers-popup')) {
+    careersJobPopup.classList.remove('open')
+   }
+})
+
+//careers form in popup
 applyBtn.addEventListener("click", onApplyBtnClick);
 
 function onApplyBtnClick() {
@@ -609,3 +616,4 @@ function onApplyBtnClick() {
     el.parentElement.nextElementSibling.style.height = null;
   }
 }
+
