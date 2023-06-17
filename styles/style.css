@@ -700,6 +700,7 @@ flex-direction: column;
 }
 .cookies {
   position: fixed;
+  z-index: 3;
   bottom: -100%;
   left: 0;
   width: 100%;
@@ -820,16 +821,12 @@ transform: rotate(45deg);
   background-color: var(--sublist);
 }
 
-.careers__pop-up__link__wrapper {
+.careers__pop-up__link__wrapper .careers__link:hover  {
+  background: transparent;
 }
 .what-we-do__link {
 }
-.careers__link {
-}
-.body-semiBold {
-}
-.h4-semiBold-l {
-}
+
 
 .careers__link_svg-wrapper {
 }
@@ -856,6 +853,16 @@ transform: rotate(45deg);
   left: -8px;
   top: 7px;
 }
+.careers__pop-up__link__wrapper {
+  position: relative;
+
+}
+
+.careers__pop-up__link__wrapper .careers__link_svg-wrapper {
+  width: 100%;
+  position: absolute;
+}
+
 @media (min-width: 1024px) {
 .careers-popup{
 padding-top: 0;
@@ -908,8 +915,12 @@ scrollbar-width: none;  /* Firefox */
   width: fit-content;
 }
 
+.careers__popup__li:hover {
+background: var(--sublist);
+}
+
 .careers__pop-up__link__wrapper {
-  position: relative;
+  /* position: relative; */
   width: fit-content;
   min-width: 360px
 }
@@ -922,10 +933,10 @@ scrollbar-width: none;  /* Firefox */
 .careers__pop-up__link__wrapper .careers__link_svg-wrapper.open svg {
   transform: rotate(270deg);
 }
-.careers__pop-up__link__wrapper .careers__link_svg-wrapper {
+/* .careers__pop-up__link__wrapper .careers__link_svg-wrapper {
   width: 100%;
   position: absolute;
-}
+} */
 .what-we-do__link {
 }
 .careers__link {

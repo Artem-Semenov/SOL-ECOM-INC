@@ -468,6 +468,10 @@ const nodeToInsertArticleOnDesctop = document.querySelector(
 let openedJob;
 
 const triggers = document.querySelectorAll(".careers__link_svg-wrapper");
+const triggersInPopup = document.querySelectorAll(
+  ".pop-up__careers__link_svg-wrapper"
+);
+
 triggers.forEach((el) =>
   el.addEventListener("click", (e) => onAccordTriggerClick.call(el, e))
 );
@@ -479,29 +483,13 @@ function onAccordTriggerClick(e) {
   const clickedSection = e.target.dataset.section;
   const accordBody = this.parentElement.nextElementSibling;
 
-  this.classList.toggle("open");
-  if (rightSideContentDesctop) {
-    rightSideContentDesctop.classList.toggle("open");
-  }
-
-  if (this.classList.contains("open")) {
-    if (accordBody) {
-      accordBody.style.marginTop = "10px";
-      if (accordBody.classList.contains("careers__li__job_desc")) {
-        this.parentElement.parentElement.classList.toggle("open", true);
-      }
-      accordBody.style.height = accordBody.scrollHeight + 10 + "px";
-    }
-  } else {
-    if (accordBody) {
-      accordBody.style.marginTop = "0px";
-      if (accordBody.classList.contains("careers__li__job_desc")) {
-        this.parentElement.parentElement.classList.toggle("open", false);
-      }
-      accordBody.style.height = null;
-    }
-  }
   if (window.innerWidth > 1023) {
+    for (const el of triggersInPopup) {
+      if (el.dataset.section === clickedSection) continue;
+      el.classList.toggle("open", false);
+      el.parentElement.parentElement.classList.toggle("open", false);
+    }
+
     nodeToInsertArticleOnDesctop.innerHTML =
       "<ul>" +
       jobsData[openedJob][clickedSection]
@@ -512,9 +500,36 @@ function onAccordTriggerClick(e) {
         .join("") +
       "</ul>";
   }
+
+  this.classList.toggle("open");
+
+  if (this.classList.contains("open")) {
+    if (rightSideContentDesctop) {
+      rightSideContentDesctop.classList.toggle("open", true);
+    }
+    if (accordBody) {
+      accordBody.style.marginTop = "10px";
+      if (accordBody.classList.contains("careers__li__job_desc")) {
+        this.parentElement.parentElement.classList.toggle("open", true);
+      }
+      accordBody.style.height = accordBody.scrollHeight + 10 + "px";
+    }
+  } else {
+    if (rightSideContentDesctop) {
+      rightSideContentDesctop.classList.toggle("open", false);
+    }
+    if (accordBody) {
+      accordBody.style.marginTop = "0px";
+      if (accordBody.classList.contains("careers__li__job_desc")) {
+        this.parentElement.parentElement.classList.toggle("open", false);
+      }
+      accordBody.style.height = null;
+    }
+  }
 }
 
 //careers pop-up
+const applyBtn = document.querySelector(".careers__pop-up__applyBtn");
 
 const careersPopupTriggers = document.querySelectorAll(
   ".triggerOpenFullJobDecsriptin"
@@ -533,15 +548,10 @@ careersPopupCloseBtn.addEventListener("click", (e) => {
 function onCareersPopupTriggersClick(e) {
   const clickedJobId = +e.target.dataset.job;
   openedJob = clickedJobId;
-  console.log(e);
-  console.log(clickedJobId);
   careersJobPopup.classList.toggle("open", true);
 
   const nodeToInsertTitle = careersJobPopup.querySelector("#nodeToInsertTitle");
   const nodeToInsertDesc = careersJobPopup.querySelector("#nodeToInsertDesc");
-  const nodeToInsertArticle = careersJobPopup.querySelector(
-    "#nodeToInsertArticle"
-  );
 
   const nodeToInsertArtickleMobile1 = careersJobPopup.querySelector(
     "#nodeToInsertArticle1"
@@ -556,8 +566,7 @@ function onCareersPopupTriggersClick(e) {
   nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
   nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
   if (window.innerWidth > 1023) {
-    // console.log(triggers)
-    // triggers[0].click()
+    triggersInPopup[0].click();
   } else {
     nodeToInsertArtickleMobile1.innerHTML =
       "<ul>" +
@@ -586,5 +595,17 @@ function onCareersPopupTriggersClick(e) {
         )
         .join("") +
       "</ul>";
+  }
+}
+
+applyBtn.addEventListener("click", onApplyBtnClick);
+
+function onApplyBtnClick() {
+  console.log(`onApplyBtnClick`);
+  rightSideContentDesctop.classList.toggle("open", false);
+  for (const el of triggers) {
+    el.classList.toggle("open", false);
+    el.parentElement.parentElement.classList.toggle("open", false);
+    el.parentElement.nextElementSibling.style.height = null;
   }
 }
