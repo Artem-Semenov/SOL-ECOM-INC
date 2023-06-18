@@ -137,8 +137,7 @@ new fullpage("#fullpage", {
   fitToSectionDelay: 1000,
   verticalCentered: true,
   normalScrollElements: ".form__wrapper, .header__burger-body, .careers-popup",
-  fixedElements: "#header, .scroll-icon",
-  dragAndMove: true,
+  fixedElements: "#header",
   // Navigation
   navigation: true,
   css3: true,
@@ -633,7 +632,6 @@ backBtn.addEventListener("click", (e) => {
 sendBtn.addEventListener("click", onSendFormClick);
 
 function onApplyBtnClick() {
-  console.log(`onApplyBtnClick`);
   careersFormInPopupWrapper.classList.toggle("open");
 }
 
