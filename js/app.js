@@ -154,7 +154,15 @@ new fullpage("#fullpage", {
       Nextnodes.forEach((node) => {
         node.classList.add("aos-animate");
       });
+    } 
+    if (destination.index === fullpage_api.test.Hn.length - 1){
+      document.querySelector('#scrollIndicator .arrow-up').style.opacity = 1;
+      document.querySelector('#scrollIndicator .arrow-down').style.opacity = 0;
+    } else {
+      document.querySelector('#scrollIndicator .arrow-up').style.opacity = 0;
+      document.querySelector('#scrollIndicator .arrow-down').style.opacity = 1;
     }
+
   },
 });
 
@@ -227,34 +235,25 @@ const comment = form.comment;
 const agreement = form.agreement;
 const messageWrapper = form.querySelector(".form__message");
 const agreementLabel = form.querySelector("label[for=agreement]");
+const submitBtn = form.submitBtn;
 
-form.addEventListener("submit", submitForm);
+submitBtn.addEventListener("click", submitForm);
 
 nameInput.addEventListener("input", isLengthValid);
-email.addEventListener("input", isEmailValid);
+email.addEventListener("input", () => {
+  isEmailValid.call(email, messageWrapper);
+});
 phone.addEventListener("input", isPhoneValid);
 job.addEventListener("input", isLengthValid);
 company.addEventListener("input", isLengthValid);
 locationInput.addEventListener("input", isLengthValid);
 agreement.addEventListener("change", isCheckboxChecked);
 
-var formData = new FormData();
-
 function submitForm(e) {
   e.preventDefault();
   if (!isValid()) return;
-  formData.append("name", nameInput.value);
-  formData.append("job", job.value);
-  formData.append("email", email.value);
-  formData.append("phone", phone.value);
-  formData.append("company", company.value);
-  formData.append("locationInput", locationInput.value);
-  formData.append("comment", comment.value);
-  formData.append(
-    "agreement",
-    `agreement ${agreement.checked ? "" : "was NOT "}accepted`
-  );
-
+  e.target.classList.add("loading");
+  const formData = new FormData(form);
   console.log("form valid", formData);
 }
 
@@ -267,7 +266,7 @@ function isValid() {
   if (!isLengthValid.call(job)) {
     _errors += 1;
   }
-  if (!isEmailValid.call(email)) {
+  if (!isEmailValid.call(email, messageWrapper)) {
     _errors += 1;
   }
   if (!isPhoneValid.call(phone)) {
@@ -325,28 +324,32 @@ function isPhoneValid() {
   }
 }
 
-function isEmailValid() {
+function isEmailValid(messageBox = null) {
   const regExp =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   const value = this.value;
-  messageWrapper.innerHTML = "";
+  if (messageBox) messageBox.innerHTML = "";
   if (!regExp.test(value)) {
     this.classList.toggle("error", true);
-    messageWrapper.innerHTML = `Please provide a valid email. Example of a valid email: test@gmail.com`;
-    showMessage(true);
+    if (messageBox) {
+      messageBox.innerHTML = `Please provide a valid email. Example of a valid email: test@gmail.com`;
+      showMessage(true, messageBox);
+    }
     return false;
   } else {
-    showMessage(false);
+    if (messageBox) showMessage(false, messageBox);
     this.classList.toggle("error", false);
     return true;
   }
 }
 
-function showMessage(show) {
-  if (show) {
-    messageWrapper.style.height = messageWrapper.scrollHeight + "px";
-  } else {
-    messageWrapper.style.height = "0px";
+function showMessage(show, messageBox = null) {
+  if (messageBox) {
+    if (show) {
+      messageBox.style.height = messageWrapper.scrollHeight + "px";
+    } else {
+      messageBox.style.height = "0px";
+    }
   }
 }
 
@@ -462,21 +465,13 @@ window.addEventListener("load", () => {
 });
 
 //careers accordeon
-const nodeToInsertArticleOnDesctop = document.querySelector(
-  "#nodeToInsertArticleOnDesctop"
-);
+const nodeToInsertArticleOnDesctop = document.querySelector("#nodeToInsertArticleOnDesctop");
+const rightSideContentDesctop = document.querySelector(".careers__right-side__content .careers__li__job_desc");
+const triggersInPopup = document.querySelectorAll(".pop-up__careers__link_svg-wrapper");
 let openedJob;
 
-const triggers = document.querySelectorAll(".careers__link_svg-wrapper");
-const triggersInPopup = document.querySelectorAll(
-  ".pop-up__careers__link_svg-wrapper"
-);
-
-triggers.forEach((el) =>
+triggersInPopup.forEach((el) =>
   el.addEventListener("click", (e) => onAccordTriggerClick.call(el, e))
-);
-const rightSideContentDesctop = document.querySelector(
-  ".careers__right-side__content .careers__li__job_desc"
 );
 
 function onAccordTriggerClick(e) {
@@ -507,29 +502,32 @@ function onAccordTriggerClick(e) {
     if (rightSideContentDesctop) {
       rightSideContentDesctop.classList.toggle("open", true);
     }
-    if (accordBody) {
+     if (accordBody) {
       accordBody.style.marginTop = "10px";
       if (accordBody.classList.contains("careers__li__job_desc")) {
         this.parentElement.parentElement.classList.toggle("open", true);
       }
       accordBody.style.height = accordBody.scrollHeight + 10 + "px";
-    }
+    } 
   } else {
     if (rightSideContentDesctop) {
       rightSideContentDesctop.classList.toggle("open", false);
     }
-    if (accordBody) {
+     if (accordBody) {
       accordBody.style.marginTop = "0px";
       if (accordBody.classList.contains("careers__li__job_desc")) {
         this.parentElement.parentElement.classList.toggle("open", false);
       }
       accordBody.style.height = null;
-    }
+    } 
   }
 }
 
 //careers pop-up
 const applyBtn = document.querySelector(".careers__pop-up__applyBtn");
+const careersFormInPopupWrapper = document.querySelector(
+  ".careers__apply-form"
+);
 
 const careersPopupTriggers = document.querySelectorAll(
   ".triggerOpenFullJobDecsriptin"
@@ -543,6 +541,7 @@ careersPopupTriggers.forEach((el) => {
 
 careersPopupCloseBtn.addEventListener("click", (e) => {
   careersJobPopup.classList.remove("open");
+  careersFormInPopupWrapper.classList.remove("open");
 });
 
 function onCareersPopupTriggersClick(e) {
@@ -602,18 +601,73 @@ function onCareersPopupTriggersClick(e) {
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("careers-popup")) {
     careersJobPopup.classList.remove("open");
+    careersFormInPopupWrapper.classList.remove("open");
   }
 });
 
 //careers form in popup
+const backBtn = document.querySelector(".careers__apply-form__back-btn");
+const sendBtn = document.querySelector(".careers__pop-up__sendBtn");
+
+const careersForm = document.getElementById("careers__apply__form");
+const careersNameInput = careersForm.name;
+const careersEmail = careersForm.email;
+const careersPhone = careersForm.phone;
+const careersLinkedin = careersForm.linkedin;
+const careersAgreement = careersForm.agreement;
+
 applyBtn.addEventListener("click", onApplyBtnClick);
+backBtn.addEventListener("click", (e) => {
+  careersFormInPopupWrapper.classList.toggle("open", false);
+});
+sendBtn.addEventListener("click", onSendFormClick);
 
 function onApplyBtnClick() {
   console.log(`onApplyBtnClick`);
-  rightSideContentDesctop.classList.toggle("open", false);
-  for (const el of triggers) {
-    el.classList.toggle("open", false);
-    el.parentElement.parentElement.classList.toggle("open", false);
-    el.parentElement.nextElementSibling.style.height = null;
+  careersFormInPopupWrapper.classList.toggle("open");
+}
+
+function onSendFormClick(e) {
+  e.preventDefault();
+  if (!validateCareersForm()) return;
+  e.target.classList.add("loading");
+  const formData = new FormData(careersForm);
+  console.log("form valid", formData);
+}
+
+function validateCareersForm() {
+  let _errors = 0;
+
+  if (!isLengthValid.call(careersNameInput)) {
+    _errors += 1;
+  }
+  if (!isEmailValid.call(careersEmail)) {
+    _errors += 1;
+  }
+  if (!isPhoneValid.call(careersPhone)) {
+    _errors += 1;
+  }
+  if (!isLengthValid.call(careersLinkedin)) {
+    _errors += 1;
+  }
+  if (!isCheckboxChecked.call(careersAgreement)) {
+    _errors += 1;
+  }
+
+  if (_errors === 0) {
+    return true;
+  } else {
+    return false;
   }
 }
+
+
+//services accordeon 
+
+const accordButtons = document.querySelectorAll('.services__link_svg-wrapper');
+
+accordButtons.forEach(el => {
+  el.addEventListener('click', e => {
+    e.target.parentElement.classList.toggle('open')
+  })
+})
