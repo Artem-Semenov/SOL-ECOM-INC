@@ -130,7 +130,6 @@ const jobsData = {
 new fullpage("#fullpage", {
   licenseKey: "gplv3-license",
   keyboardScrolling: true,
-  // scrollBar: true
   scrollOverflow: false,
   css3: true,
   autoScrolling: true,
@@ -139,8 +138,21 @@ new fullpage("#fullpage", {
   verticalCentered: true,
   normalScrollElements: ".form__wrapper, .header__burger-body, .careers-popup",
   fixedElements: "#header, .scroll-icon",
-  // anchors: ["firstPage", "secondPage", "thirdPafe", "page4"],
-
+  dragAndMove: true,
+  // Navigation
+  navigation: true,
+  css3: true,
+  anchors: [...document.querySelectorAll("[data-anchor]")].map(
+    (el) => el.dataset.anchor
+  ),
+  navigationPosition: "right",
+  navigationTooltips: [...document.querySelectorAll("[data-anchor]")].map(
+    (el) => el.dataset.anchor.split("-").join(" ")
+  ),
+  showActiveTooltip: false,
+  slidesNavigation: false,
+  slidesNavPosition: "bottom",
+  //
   onLeave: (origin, destination, direction, trigger) => {
     const Nextnodes = destination.item.querySelectorAll("[data-aos]");
     const previousNodes = origin.item.querySelectorAll("[data-aos]");
@@ -154,15 +166,7 @@ new fullpage("#fullpage", {
       Nextnodes.forEach((node) => {
         node.classList.add("aos-animate");
       });
-    } 
-    if (destination.index === fullpage_api.test.Hn.length - 1){
-      document.querySelector('#scrollIndicator .arrow-up').style.opacity = 1;
-      document.querySelector('#scrollIndicator .arrow-down').style.opacity = 0;
-    } else {
-      document.querySelector('#scrollIndicator .arrow-up').style.opacity = 0;
-      document.querySelector('#scrollIndicator .arrow-down').style.opacity = 1;
     }
-
   },
 });
 
@@ -465,9 +469,15 @@ window.addEventListener("load", () => {
 });
 
 //careers accordeon
-const nodeToInsertArticleOnDesctop = document.querySelector("#nodeToInsertArticleOnDesctop");
-const rightSideContentDesctop = document.querySelector(".careers__right-side__content .careers__li__job_desc");
-const triggersInPopup = document.querySelectorAll(".pop-up__careers__link_svg-wrapper");
+const nodeToInsertArticleOnDesctop = document.querySelector(
+  "#nodeToInsertArticleOnDesctop"
+);
+const rightSideContentDesctop = document.querySelector(
+  ".careers__right-side__content .careers__li__job_desc"
+);
+const triggersInPopup = document.querySelectorAll(
+  ".pop-up__careers__link_svg-wrapper"
+);
 let openedJob;
 
 triggersInPopup.forEach((el) =>
@@ -502,24 +512,24 @@ function onAccordTriggerClick(e) {
     if (rightSideContentDesctop) {
       rightSideContentDesctop.classList.toggle("open", true);
     }
-     if (accordBody) {
+    if (accordBody) {
       accordBody.style.marginTop = "10px";
       if (accordBody.classList.contains("careers__li__job_desc")) {
         this.parentElement.parentElement.classList.toggle("open", true);
       }
       accordBody.style.height = accordBody.scrollHeight + 10 + "px";
-    } 
+    }
   } else {
     if (rightSideContentDesctop) {
       rightSideContentDesctop.classList.toggle("open", false);
     }
-     if (accordBody) {
+    if (accordBody) {
       accordBody.style.marginTop = "0px";
       if (accordBody.classList.contains("careers__li__job_desc")) {
         this.parentElement.parentElement.classList.toggle("open", false);
       }
       accordBody.style.height = null;
-    } 
+    }
   }
 }
 
@@ -661,13 +671,18 @@ function validateCareersForm() {
   }
 }
 
+//services accordeon
 
-//services accordeon 
+const accordButtons = document.querySelectorAll(".services__link_svg-wrapper");
 
-const accordButtons = document.querySelectorAll('.services__link_svg-wrapper');
-
-accordButtons.forEach(el => {
-  el.addEventListener('click', e => {
-    e.target.parentElement.classList.toggle('open')
-  })
-})
+accordButtons.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    const clickedEl = e.target;
+    if (!clickedEl.parentElement.classList.contains("open")) {
+      accordButtons.forEach((item) => {
+        item.parentElement.classList.remove("open");
+      });
+    }
+    clickedEl.parentElement.classList.toggle("open");
+  });
+});

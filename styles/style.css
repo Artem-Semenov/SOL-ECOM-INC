@@ -378,9 +378,7 @@ cursor: pointer;
 .screen.footer {
   padding-top: 0;
 }
-.scroll-icon {
-  display: none;
-}
+
 
 .what-we-do__wrapper {
   justify-content: center;
@@ -1139,27 +1137,6 @@ flex-flow: column nowrap;
 .sub-list__anchors ul {
   flex-flow: row wrap;
 }
-  .scroll-icon {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    gap: 12px;
-    right: 108px;
-    bottom: 80px;
-  }
-
-  .scroll-icon .arrow-down {
-    transform: rotate(180deg);
-  }
-  
-  .scroll-icon .arrow-down, .scroll-icon .arrow-up {
-    transition: all ease .3s;
-  }
-  
-  .scroll-icon .arrow-up {
-    opacity: 0;
-  }
-
   .header {
     width: var(--header-size);
     left: 0;
@@ -1318,6 +1295,7 @@ services
 }
 .services__link__wrapper {
   display: flex;
+  position: relative;
 }
 .services__link_svg-wrapper {
   flex-grow: 1;
@@ -1325,6 +1303,11 @@ services
   justify-content: flex-end;
   align-items: center;
   padding-right: 9px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 .services__link_svg-wrapper svg {
   pointer-events: none;
@@ -1346,17 +1329,22 @@ transform: rotate(180deg);
 grid-template-rows: 1fr;
 }
 
-.services__link__desc ul {
+.services__link__desc ul, .services__link__desc p {
   overflow: hidden;
 }
 .services__link__desc a {
   padding: 4px 0;
 }
-
+.services__link__desc.services__link__desc__text {
+  padding-left: 0;
+  margin-top: 8px;
+}
+.services__list.what-we-do {
+  gap: 16px;
+}
 @media (min-width: 1024px) {
-  .services__li {
-  }
-  .services__link__wrapper {
+  .services__list.what-we-do {
+    gap: 32px;
   }
   .services__link {
     width: 100%;
@@ -1436,3 +1424,10 @@ services end
 /* 
 #endregion animation 
 */
+
+#fp-nav ul li a span {
+  background: #B4B2B2;
+}
+#fp-nav ul li a.active span {
+  background: #FFFFFF;
+}
