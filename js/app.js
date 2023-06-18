@@ -35,7 +35,7 @@ const jobsData = {
       "Robust referral program to reward professional connections.",
     ],
   },
-  2: {
+  4: {
     title: "JUNIOR PROJECT MANAGER",
     desc: "At Sol Ecom Inc, we specialize in developing a revolutionary fintech product that is unparalleled in the market. By joining us, you will have the opportunity to engage in fair competition with these industry players.",
     willDo: [
@@ -61,7 +61,7 @@ const jobsData = {
       "Robust referral program to reward professional connections.",
     ],
   },
-  3: {
+  2: {
     title: "MANAGEMENT REPORTING SPECIALIST",
     desc: "Due to active company growth, we are currently seeking a Management Reporting Specialist. You will be responsible for independently managing the project from start to finish. We value initiative and its manifestation in order to help the project become better.",
     willDo: [
@@ -96,7 +96,7 @@ const jobsData = {
       "Advancement of your professional skills.",
     ],
   },
-  4: {
+  3: {
     title: "SYSTEM ANALYST",
     desc: "As a System Analyst, you will play a crucial role in analyzing, designing, and implementing innovative technology solutions to meet our organization's needs.",
     willDo: [
@@ -566,7 +566,8 @@ function onCareersPopupTriggersClick(e) {
   nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
   nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
   if (window.innerWidth > 1023) {
-    triggersInPopup[0].click();
+    if (!triggersInPopup[0].classList.contains("open"))
+      triggersInPopup[0].click();
   } else {
     nodeToInsertArtickleMobile1.innerHTML =
       "<ul>" +
@@ -598,11 +599,11 @@ function onCareersPopupTriggersClick(e) {
   }
 }
 
-document.addEventListener('click', e => {
-   if (e.target.classList.contains('careers-popup')) {
-    careersJobPopup.classList.remove('open')
-   }
-})
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("careers-popup")) {
+    careersJobPopup.classList.remove("open");
+  }
+});
 
 //careers form in popup
 applyBtn.addEventListener("click", onApplyBtnClick);
@@ -616,4 +617,3 @@ function onApplyBtnClick() {
     el.parentElement.nextElementSibling.style.height = null;
   }
 }
-
