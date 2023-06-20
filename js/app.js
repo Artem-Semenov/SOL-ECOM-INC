@@ -684,3 +684,8 @@ accordButtons.forEach((el) => {
     clickedEl.parentElement.classList.toggle("open");
   });
 });
+
+/* window.addEventListener("load", (e) => {
+  document.getElementById("animation-container").remove();
+});
+ */
