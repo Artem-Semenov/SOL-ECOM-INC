@@ -235,6 +235,21 @@
       <div
         class="page-preloader__drop-line page-preloader__drop-line_animated"></div>
     </div>
+    <script>
+      var animation = bodymovin.loadAnimation({
+        container: document.getElementById("animation-container"),
+
+        path: "img/preloader/preloader.json",
+
+        renderer: "svg",
+
+        loop: true,
+
+        autoplay: true,
+
+        name: "Demo Animation",
+      });
+    </script>
     <header class="header" id="header">
       <div class="header__content">
         <div class="header__logo">
@@ -1998,21 +2013,7 @@
       </div>
     </div>
     <!-- careers popup -->
-    <script>
-      var animation = bodymovin.loadAnimation({
-        container: document.getElementById("animation-container"),
-
-        path: "/img/preloader/preloader.json",
-
-        renderer: "svg",
-
-        loop: true,
-
-        autoplay: true,
-
-        name: "Demo Animation",
-      });
-    </script>
+    
     <script src="./js/fullpage.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./js/app.js"></script>

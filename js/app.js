@@ -685,7 +685,6 @@ accordButtons.forEach((el) => {
   });
 });
 
-/* window.addEventListener("load", (e) => {
+window.addEventListener("load", (e) => {
   document.getElementById("animation-container").remove();
 });
- */
