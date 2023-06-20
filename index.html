@@ -37,6 +37,30 @@
       body {
         overflow: hidden;
       }
+      @keyframes animateLine1 {
+        from {
+          width: 0px;
+        }
+        to {
+          width: 200px;
+        }
+      }
+      @keyframes animateLine2 {
+        from {
+          width: 0px;
+        }
+        to {
+          width: 200px;
+        }
+      }
+      @keyframes animateLine3 {
+        from {
+          height: 0px;
+        }
+        to {
+          height: 250px;
+        }
+      }
     </style>
     <div
       class="page-preloader"
@@ -224,18 +248,47 @@
       </div>
       <div
         class="page-preloader__progress-bar page-preloader__progress-bar_top"
-        style="transform: translate(-50%, -50px) scaleX(0.849068)">
+        style="
+          position: absolute;
+          top: calc(50% - 50px);
+          left: calc(50% - 100px);
+          height: 1px;
+          transform-origin: 100% 0;
+          background: #fff;
+          animation: animateLine1 5s forwards;
+          animation-delay: 3.7s;
+        ">
         <div class="rect" style="transform: scaleX(1)"></div>
       </div>
       <div
         class="page-preloader__progress-bar page-preloader__progress-bar_bottom"
-        style="transform: translate(-50%, 50px) scaleX(0.849068)">
+        style="
+          position: absolute;
+          top: calc(50% + 50px);
+          left: calc(50% + 100px);
+          height: 1px;
+          transform: rotate(180deg);
+          transform-origin: 0 0;
+          background: #fff;
+          animation: animateLine2 5s forwards;
+          animation-delay: 3.7s;
+        ">
         <div class="rect" style="transform: scaleX(1)"></div>
       </div>
       <div
-        class="page-preloader__drop-line page-preloader__drop-line_animated"></div>
+        class="page-preloader__drop-line"
+        style="
+          width: 1px;
+          height: 0px;
+          animation: animateLine3 5s forwards;
+          animation-delay: 3.7s;
+          position: absolute;
+          background: #fff;
+          left: 50%;
+          bottom: 0;
+        "></div>
     </div>
-    <script>
+    <script class="scriptToDelete">
       var animation = bodymovin.loadAnimation({
         container: document.getElementById("animation-container"),
 
@@ -243,12 +296,31 @@
 
         renderer: "svg",
 
-        loop: true,
+        loop: false,
 
         autoplay: true,
 
         name: "Demo Animation",
       });
+      setTimeout(() => {
+        const elToDelete = document.querySelector(
+          '[clip-path="url(#__lottie_element_4)"]'
+        );
+        elToDelete.style.transition = "all ease .2s";
+        elToDelete.style.opacity = "0";
+      }, 3700);
+
+      setTimeout(() => {
+        const animationContainer = document.querySelector(
+          "#animation-container"
+        );
+        animationContainer.style.transition = "all ease .3s";
+        animationContainer.style.opacity = "0";
+        setTimeout(() => {
+          animationContainer.remove();
+          document.querySelector(".scriptToDelete").remove();
+        }, 400);
+      }, 8000);
     </script>
     <header class="header" id="header">
       <div class="header__content">
@@ -2013,7 +2085,7 @@
       </div>
     </div>
     <!-- careers popup -->
-    
+
     <script src="./js/fullpage.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./js/app.js"></script>
