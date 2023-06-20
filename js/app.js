@@ -464,7 +464,7 @@ function checkForCookie() {
 window.addEventListener("load", () => {
   setTimeout(() => {
     checkForCookie();
-  }, 3000);
+  }, 15000);
 });
 
 //careers accordeon
@@ -684,4 +684,3 @@ accordButtons.forEach((el) => {
     clickedEl.parentElement.classList.toggle("open");
   });
 });
-
