@@ -288,7 +288,7 @@
           bottom: 0;
         "></div>
     </div>
-    <script class="scriptToDelete">
+    <script class="animationsJs">
       var animation = bodymovin.loadAnimation({
         container: document.getElementById("animation-container"),
 
@@ -318,7 +318,7 @@
         animationContainer.style.opacity = "0";
         setTimeout(() => {
           animationContainer.remove();
-          document.querySelector(".scriptToDelete").remove();
+          document.querySelector(".animationsJs").remove();
         }, 400);
       }, 8000);
     </script>
