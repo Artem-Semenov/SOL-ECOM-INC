@@ -127,48 +127,50 @@ const jobsData = {
   },
 };
 
-new fullpage("#fullpage", {
-  licenseKey: "gplv3-license",
-  keyboardScrolling: true,
-  scrollOverflow: false,
-  css3: true,
-  autoScrolling: true,
-  fitToSection: true,
-  fitToSectionDelay: 1000,
-  verticalCentered: true,
-  normalScrollElements: ".form__wrapper, .header__burger-body, .careers-popup",
-  fixedElements: "#header",
-  // Navigation
-  navigation: true,
-  css3: true,
-  anchors: [...document.querySelectorAll("[data-anchor]")].map(
-    (el) => el.dataset.anchor
-  ),
-  navigationPosition: "right",
-  navigationTooltips: [...document.querySelectorAll("[data-anchor]")].map(
-    (el) => el.dataset.anchor.split("-").join(" ")
-  ),
-  showActiveTooltip: false,
-  slidesNavigation: false,
-  slidesNavPosition: "bottom",
-  //
-  onLeave: (origin, destination, direction, trigger) => {
-    const Nextnodes = destination.item.querySelectorAll("[data-aos]");
-    const previousNodes = origin.item.querySelectorAll("[data-aos]");
-    const video = destination.item.querySelector("video");
-    if (destination.index !== fullpage_api.test.Hn.length - 1) {
-      if (video) video.play();
-      previousNodes.forEach((node) => {
-        node.classList.remove("aos-animate");
-      });
+const anchors = document.querySelectorAll("[data-anchor]");
+if (anchors.length) {
+  new fullpage("#fullpage", {
+    licenseKey: "gplv3-license",
+    keyboardScrolling: true,
+    scrollOverflow: false,
+    css3: true,
+    autoScrolling: true,
+    fitToSection: true,
+    fitToSectionDelay: 1000,
+    verticalCentered: true,
+    normalScrollElements:
+      ".form__wrapper, .header__burger-body, .careers-popup",
+    fixedElements: "#header",
+    // Navigation
+    navigation: true,
+    css3: true,
+    anchors: [...anchors].map((el) => el.dataset.anchor),
+    navigationPosition: "right",
+    navigationTooltips: [...anchors].map((el) => {
+      const res = el.dataset.anchor.split("-").join(" ");
+      return res.charAt(0).toUpperCase() + res.slice(1);
+    }),
+    showActiveTooltip: false,
+    slidesNavigation: false,
+    slidesNavPosition: "bottom",
+    //
+    onLeave: (origin, destination, direction, trigger) => {
+      const Nextnodes = destination.item.querySelectorAll("[data-aos]");
+      const previousNodes = origin.item.querySelectorAll("[data-aos]");
+      const video = destination.item.querySelector("video");
+      if (destination.index !== fullpage_api.test.Hn.length - 1) {
+        if (video) video.play();
+        previousNodes.forEach((node) => {
+          node.classList.remove("aos-animate");
+        });
 
-      Nextnodes.forEach((node) => {
-        node.classList.add("aos-animate");
-      });
-    }
-  },
-});
-
+        Nextnodes.forEach((node) => {
+          node.classList.add("aos-animate");
+        });
+      }
+    },
+  });
+}
 // menu burger
 
 const header = document.getElementById("header");
@@ -226,7 +228,7 @@ window.addEventListener("resize", addTogglingOnMobile);
 addTogglingOnMobile();
 
 //form
-
+try {
 const form = document.getElementById("form");
 const nameInput = form.name;
 const job = form.job;
@@ -684,3 +686,8 @@ accordButtons.forEach((el) => {
     clickedEl.parentElement.classList.toggle("open");
   });
 });
+
+} 
+catch(e) {
+console.warn('unused js was skipped')
+}
