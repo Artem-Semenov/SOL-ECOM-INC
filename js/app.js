@@ -273,19 +273,18 @@ try {
     button.classList.add("loading");
     $.ajax({
       type: "POST",
-      url: "/uniMail-master/script/mail.php", //Change
+      url: "/uniMail-master/script/mail.php", 
       data: $(form).serialize(),
     })
       .done(function () {
-        alert("Thank you!");
-        // Done Functions
+        alert("Thank you! We will contact you soon!");
         $(form).trigger("reset");
         button.classList.remove("loading");
       })
       .fail((e) => {
         console.warn(e);
         button.classList.remove("loading");
-        alert("Error! Try later");
+        alert("Error! Try later please");
       });
     return false;
   }
@@ -682,19 +681,18 @@ try {
     button.classList.add("loading");
     $.ajax({
       type: "POST",
-      url: "/uniMail-master/script/mail.php", //Change
+      url: "/uniMail-master/script/mail.php", 
       data: $(careersForm).serialize(),
     })
       .done(function () {
-        alert("Thank you!");
-        // Done Functions
+        alert("Thank you! We will contact you soon!");
         $(careersForm).trigger("reset");
         button.classList.remove("loading");
       })
       .fail((e) => {
         console.warn(e);
         button.classList.remove("loading");
-        alert("Error! Try later");
+        alert("Error! Try later please");
       });
     return false;
   }
