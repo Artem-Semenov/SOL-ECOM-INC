@@ -273,7 +273,7 @@ try {
     button.classList.add("loading");
     $.ajax({
       type: "POST",
-      url: "/uniMail-master/script/mail.php", 
+      url: "/uniMail-master/script/mail.php",
       data: $(form).serialize(),
     })
       .done(function () {
@@ -450,7 +450,7 @@ function createCookieNode() {
 function onAcceptCookie() {
   const cookieeNode = document.querySelector(".cookies");
   const guid = generateGuid();
-  document.cookie = `_guid=${guid}`;
+  document.cookie = `_guid=${guid}; path=/; max-age=3000000`;
   cookieeNode.classList.remove("show");
   setTimeout(() => {
     cookieeNode.remove();
@@ -491,7 +491,7 @@ function checkForCookie() {
 window.addEventListener("load", () => {
   setTimeout(() => {
     checkForCookie();
-  }, 15000);
+  }, 10000);
 });
 
 try {
@@ -681,7 +681,7 @@ try {
     button.classList.add("loading");
     $.ajax({
       type: "POST",
-      url: "/uniMail-master/script/mail.php", 
+      url: "/uniMail-master/script/mail.php",
       data: $(careersForm).serialize(),
     })
       .done(function () {
