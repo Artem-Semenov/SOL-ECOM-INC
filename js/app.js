@@ -203,6 +203,7 @@ if (burgerBtn) {
 
 const subMenuBody = document.querySelector(".header__burger-body_sub-list");
 const subMenuBtn = document.querySelector(".header__burger-body_arrow");
+const subAnchors = subMenuBody.querySelectorAll(".sub-list__anchors a");
 
 const togglesubMenuOpen = () => {
   subMenuBtn.classList.toggle("open");
@@ -226,83 +227,117 @@ const addTogglingOnMobile = () => {
 
 window.addEventListener("resize", addTogglingOnMobile);
 addTogglingOnMobile();
-
+subAnchors.forEach((el) =>
+  el.addEventListener("click", (e) => {
+    if (header.classList.contains("_active")) {
+      burgerBtn.click();
+    }
+    if (window.innerWidth < 1024 && subMenuBody.classList.contains("open")) {
+      togglesubMenuOpen();
+    }
+  })
+);
 //form
+let messageWrapper;
 try {
-const form = document.getElementById("form");
-const nameInput = form.name;
-const job = form.job;
-const email = form.email;
-const phone = form.phone;
-const company = form.company;
-const locationInput = form.location;
-const comment = form.comment;
-const agreement = form.agreement;
-const messageWrapper = form.querySelector(".form__message");
-const agreementLabel = form.querySelector("label[for=agreement]");
-const submitBtn = form.submitBtn;
+  const form = document.getElementById("form");
+  const nameInput = form.name;
+  const job = form.job;
+  const email = form.email;
+  const phone = form.phone;
+  const company = form.company;
+  const locationInput = form.location;
+  const comment = form.comment;
+  const agreement = form.agreement;
+  messageWrapper = form.querySelector(".form__message");
+  const agreementLabel = form.querySelector("label[for=agreement]");
+  const submitBtn = form.submitBtn;
+  submitBtn.addEventListener("click", submitForm);
 
-submitBtn.addEventListener("click", submitForm);
+  nameInput.addEventListener("input", isLengthValid);
+  email.addEventListener("input", () => {
+    isEmailValid.call(email, messageWrapper);
+  });
+  phone.addEventListener("input", isPhoneValid);
+  job.addEventListener("input", isLengthValid);
+  company.addEventListener("input", isLengthValid);
+  locationInput.addEventListener("input", isLengthValid);
+  agreement.addEventListener("change", () =>
+    isCheckboxChecked.call(agreement, agreementLabel)
+  );
 
-nameInput.addEventListener("input", isLengthValid);
-email.addEventListener("input", () => {
-  isEmailValid.call(email, messageWrapper);
-});
-phone.addEventListener("input", isPhoneValid);
-job.addEventListener("input", isLengthValid);
-company.addEventListener("input", isLengthValid);
-locationInput.addEventListener("input", isLengthValid);
-agreement.addEventListener("change", isCheckboxChecked);
-
-function submitForm(e) {
-  e.preventDefault();
-  if (!isValid()) return;
-  e.target.classList.add("loading");
-  const formData = new FormData(form);
-  console.log("form valid", formData);
-}
-
-function isValid() {
-  let _errors = 0;
-
-  if (!isLengthValid.call(nameInput)) {
-    _errors += 1;
-  }
-  if (!isLengthValid.call(job)) {
-    _errors += 1;
-  }
-  if (!isEmailValid.call(email, messageWrapper)) {
-    _errors += 1;
-  }
-  if (!isPhoneValid.call(phone)) {
-    _errors += 1;
-  }
-  if (!isLengthValid.call(company)) {
-    _errors += 1;
-  }
-  if (!isLengthValid.call(locationInput)) {
-    _errors += 1;
-  }
-  if (!isCheckboxChecked.call(agreement)) {
-    _errors += 1;
-  }
-
-  if (_errors === 0) {
-    return true;
-  } else {
+  function submitForm(e) {
+    e.preventDefault();
+    if (!isValid()) return;
+    const button = e.target;
+    button.classList.add("loading");
+    $.ajax({
+      type: "POST",
+      url: "/uniMail-master/script/mail.php", //Change
+      data: $(form).serialize(),
+    })
+      .done(function () {
+        alert("Thank you!");
+        // Done Functions
+        $(form).trigger("reset");
+        button.classList.remove("loading");
+      })
+      .fail((e) => {
+        console.warn(e);
+        button.classList.remove("loading");
+        alert("Error! Try later");
+      });
     return false;
   }
-}
 
-function isCheckboxChecked() {
+  function isValid() {
+    let _errors = 0;
+
+    if (!isLengthValid.call(nameInput)) {
+      _errors += 1;
+    }
+    if (!isLengthValid.call(job)) {
+      _errors += 1;
+    }
+    if (!isEmailValid.call(email, messageWrapper)) {
+      _errors += 1;
+    }
+    if (!isPhoneValid.call(phone)) {
+      _errors += 1;
+    }
+    if (!isLengthValid.call(company)) {
+      _errors += 1;
+    }
+    if (!isLengthValid.call(locationInput)) {
+      _errors += 1;
+    }
+    if (!isCheckboxChecked.call(agreement, agreementLabel)) {
+      _errors += 1;
+    }
+
+    if (_errors === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  agreement.addEventListener("focus", (e) => {
+    document.addEventListener("keypress", onKeyPress);
+  });
+  agreement.addEventListener("blur", (e) => {
+    document.removeEventListener("keypress", onKeyPress);
+  });
+} catch (e) {}
+
+function isCheckboxChecked(label) {
   const checked = this.checked;
   if (!checked) {
     this.classList.toggle("error", true);
-    agreementLabel.classList.toggle("error", true);
+    label.classList.toggle("error", true);
     return false;
   } else {
     this.classList.toggle("error", false);
-    agreementLabel.classList.toggle("error", false);
+    label.classList.toggle("error", false);
     return true;
   }
 }
@@ -347,7 +382,6 @@ function isEmailValid(messageBox = null) {
     return true;
   }
 }
-
 function showMessage(show, messageBox = null) {
   if (messageBox) {
     if (show) {
@@ -357,19 +391,11 @@ function showMessage(show, messageBox = null) {
     }
   }
 }
-
-agreement.addEventListener("focus", (e) => {
-  document.addEventListener("keypress", onKeyPress);
-});
-agreement.addEventListener("blur", (e) => {
-  document.removeEventListener("keypress", onKeyPress);
-});
-
 function onKeyPress(e) {
   e.preventDefault();
   if (e.key === "Enter") {
     agreement.checked = !agreement.checked;
-    isCheckboxChecked.apply(agreement);
+    isCheckboxChecked.apply(agreement, agreementLabel);
   }
 }
 
@@ -469,225 +495,253 @@ window.addEventListener("load", () => {
   }, 15000);
 });
 
-//careers accordeon
-const nodeToInsertArticleOnDesctop = document.querySelector(
-  "#nodeToInsertArticleOnDesctop"
-);
-const rightSideContentDesctop = document.querySelector(
-  ".careers__right-side__content .careers__li__job_desc"
-);
-const triggersInPopup = document.querySelectorAll(
-  ".pop-up__careers__link_svg-wrapper"
-);
-let openedJob;
+try {
+  //careers accordeon
+  const nodeToInsertArticleOnDesctop = document.querySelector(
+    "#nodeToInsertArticleOnDesctop"
+  );
+  const rightSideContentDesctop = document.querySelector(
+    ".careers__right-side__content .careers__li__job_desc"
+  );
+  const triggersInPopup = document.querySelectorAll(
+    ".pop-up__careers__link_svg-wrapper"
+  );
+  let openedJob;
 
-triggersInPopup.forEach((el) =>
-  el.addEventListener("click", (e) => onAccordTriggerClick.call(el, e))
-);
+  triggersInPopup.forEach((el) =>
+    el.addEventListener("click", (e) => onAccordTriggerClick.call(el, e))
+  );
 
-function onAccordTriggerClick(e) {
-  const clickedSection = e.target.dataset.section;
-  const accordBody = this.parentElement.nextElementSibling;
+  function onAccordTriggerClick(e) {
+    const clickedSection = e.target.dataset.section;
+    const accordBody = this.parentElement.nextElementSibling;
 
-  if (window.innerWidth > 1023) {
-    for (const el of triggersInPopup) {
-      if (el.dataset.section === clickedSection) continue;
-      el.classList.toggle("open", false);
-      el.parentElement.parentElement.classList.toggle("open", false);
-    }
+    if (window.innerWidth > 1023) {
+      for (const el of triggersInPopup) {
+        if (el.dataset.section === clickedSection) continue;
+        el.classList.toggle("open", false);
+        el.parentElement.parentElement.classList.toggle("open", false);
+      }
 
-    nodeToInsertArticleOnDesctop.innerHTML =
-      "<ul>" +
-      jobsData[openedJob][clickedSection]
-        .map(
-          (el) => `<li class="h5 body-l">
+      nodeToInsertArticleOnDesctop.innerHTML =
+        "<ul>" +
+        jobsData[openedJob][clickedSection]
+          .map(
+            (el) => `<li class="h5 body-l">
    ${el} </li>`
-        )
-        .join("") +
-      "</ul>";
-  }
-
-  this.classList.toggle("open");
-
-  if (this.classList.contains("open")) {
-    if (rightSideContentDesctop) {
-      rightSideContentDesctop.classList.toggle("open", true);
+          )
+          .join("") +
+        "</ul>";
     }
-    if (accordBody) {
-      accordBody.style.marginTop = "10px";
-      if (accordBody.classList.contains("careers__li__job_desc")) {
-        this.parentElement.parentElement.classList.toggle("open", true);
+
+    this.classList.toggle("open");
+
+    if (this.classList.contains("open")) {
+      if (rightSideContentDesctop) {
+        rightSideContentDesctop.classList.toggle("open", true);
       }
-      accordBody.style.height = accordBody.scrollHeight + 10 + "px";
-    }
-  } else {
-    if (rightSideContentDesctop) {
-      rightSideContentDesctop.classList.toggle("open", false);
-    }
-    if (accordBody) {
-      accordBody.style.marginTop = "0px";
-      if (accordBody.classList.contains("careers__li__job_desc")) {
-        this.parentElement.parentElement.classList.toggle("open", false);
+      if (accordBody) {
+        accordBody.style.marginTop = "10px";
+        if (accordBody.classList.contains("careers__li__job_desc")) {
+          this.parentElement.parentElement.classList.toggle("open", true);
+        }
+        accordBody.style.height = accordBody.scrollHeight + 10 + "px";
       }
-      accordBody.style.height = null;
+    } else {
+      if (rightSideContentDesctop) {
+        rightSideContentDesctop.classList.toggle("open", false);
+      }
+      if (accordBody) {
+        accordBody.style.marginTop = "0px";
+        if (accordBody.classList.contains("careers__li__job_desc")) {
+          this.parentElement.parentElement.classList.toggle("open", false);
+        }
+        accordBody.style.height = null;
+      }
     }
   }
-}
 
-//careers pop-up
-const applyBtn = document.querySelector(".careers__pop-up__applyBtn");
-const careersFormInPopupWrapper = document.querySelector(
-  ".careers__apply-form"
-);
-
-const careersPopupTriggers = document.querySelectorAll(
-  ".triggerOpenFullJobDecsriptin"
-);
-const careersJobPopup = document.getElementById("careers-popup");
-const careersPopupCloseBtn = document.querySelector(".careers__close-btn");
-
-careersPopupTriggers.forEach((el) => {
-  el.addEventListener("click", onCareersPopupTriggersClick);
-});
-
-careersPopupCloseBtn.addEventListener("click", (e) => {
-  careersJobPopup.classList.remove("open");
-  careersFormInPopupWrapper.classList.remove("open");
-});
-
-function onCareersPopupTriggersClick(e) {
-  const clickedJobId = +e.target.dataset.job;
-  openedJob = clickedJobId;
-  careersJobPopup.classList.toggle("open", true);
-
-  const nodeToInsertTitle = careersJobPopup.querySelector("#nodeToInsertTitle");
-  const nodeToInsertDesc = careersJobPopup.querySelector("#nodeToInsertDesc");
-
-  const nodeToInsertArtickleMobile1 = careersJobPopup.querySelector(
-    "#nodeToInsertArticle1"
-  );
-  const nodeToInsertArtickleMobile2 = careersJobPopup.querySelector(
-    "#nodeToInsertArticle2"
-  );
-  const nodeToInsertArtickleMobile3 = careersJobPopup.querySelector(
-    "#nodeToInsertArticle3"
+  //careers pop-up
+  const applyBtn = document.querySelector(".careers__pop-up__applyBtn");
+  const careersFormInPopupWrapper = document.querySelector(
+    ".careers__apply-form"
   );
 
-  nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
-  nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
-  if (window.innerWidth > 1023) {
-    if (!triggersInPopup[0].classList.contains("open"))
-      triggersInPopup[0].click();
-  } else {
-    nodeToInsertArtickleMobile1.innerHTML =
-      "<ul>" +
-      jobsData[clickedJobId].willDo
-        .map(
-          (el) => `<li class="h5 body-l">
- ${el} </li>`
-        )
-        .join("") +
-      "</ul>";
-    nodeToInsertArtickleMobile2.innerHTML =
-      "<ul>" +
-      jobsData[clickedJobId].important
-        .map(
-          (el) => `<li class="h5 body-l">
- ${el} </li>`
-        )
-        .join("") +
-      "</ul>";
-    nodeToInsertArtickleMobile3.innerHTML =
-      "<ul>" +
-      jobsData[clickedJobId].offer
-        .map(
-          (el) => `<li class="h5 body-l">
- ${el} </li>`
-        )
-        .join("") +
-      "</ul>";
-  }
-}
+  const careersPopupTriggers = document.querySelectorAll(
+    ".triggerOpenFullJobDecsriptin"
+  );
+  const careersJobPopup = document.getElementById("careers-popup");
+  const careersPopupCloseBtn = document.querySelector(".careers__close-btn");
 
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("careers-popup")) {
+  careersPopupTriggers.forEach((el) => {
+    el.addEventListener("click", onCareersPopupTriggersClick);
+  });
+
+  careersPopupCloseBtn.addEventListener("click", (e) => {
     careersJobPopup.classList.remove("open");
     careersFormInPopupWrapper.classList.remove("open");
+  });
+
+  function onCareersPopupTriggersClick(e) {
+    const clickedJobId = +e.target.dataset.job;
+    openedJob = clickedJobId;
+    careersJobPopup.classList.toggle("open", true);
+
+    const nodeToInsertTitle =
+      careersJobPopup.querySelector("#nodeToInsertTitle");
+    const nodeToInsertDesc = careersJobPopup.querySelector("#nodeToInsertDesc");
+
+    const nodeToInsertArtickleMobile1 = careersJobPopup.querySelector(
+      "#nodeToInsertArticle1"
+    );
+    const nodeToInsertArtickleMobile2 = careersJobPopup.querySelector(
+      "#nodeToInsertArticle2"
+    );
+    const nodeToInsertArtickleMobile3 = careersJobPopup.querySelector(
+      "#nodeToInsertArticle3"
+    );
+
+    nodeToInsertTitle.innerHTML = jobsData[clickedJobId].title;
+    nodeToInsertDesc.innerHTML = jobsData[clickedJobId].desc;
+    if (window.innerWidth > 1023) {
+      if (!triggersInPopup[0].classList.contains("open"))
+        triggersInPopup[0].click();
+    } else {
+      nodeToInsertArtickleMobile1.innerHTML =
+        "<ul>" +
+        jobsData[clickedJobId].willDo
+          .map(
+            (el) => `<li class="h5 body-l">
+ ${el} </li>`
+          )
+          .join("") +
+        "</ul>";
+      nodeToInsertArtickleMobile2.innerHTML =
+        "<ul>" +
+        jobsData[clickedJobId].important
+          .map(
+            (el) => `<li class="h5 body-l">
+ ${el} </li>`
+          )
+          .join("") +
+        "</ul>";
+      nodeToInsertArtickleMobile3.innerHTML =
+        "<ul>" +
+        jobsData[clickedJobId].offer
+          .map(
+            (el) => `<li class="h5 body-l">
+ ${el} </li>`
+          )
+          .join("") +
+        "</ul>";
+    }
   }
-});
 
-//careers form in popup
-const backBtn = document.querySelector(".careers__apply-form__back-btn");
-const sendBtn = document.querySelector(".careers__pop-up__sendBtn");
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("careers-popup")) {
+      careersJobPopup.classList.remove("open");
+      careersFormInPopupWrapper.classList.remove("open");
+    }
+  });
 
-const careersForm = document.getElementById("careers__apply__form");
-const careersNameInput = careersForm.name;
-const careersEmail = careersForm.email;
-const careersPhone = careersForm.phone;
-const careersLinkedin = careersForm.linkedin;
-const careersAgreement = careersForm.agreement;
+  //careers form in popup
+  const backBtn = document.querySelector(".careers__apply-form__back-btn");
+  const sendBtn = document.querySelector(".careers__pop-up__sendBtn");
 
-applyBtn.addEventListener("click", onApplyBtnClick);
-backBtn.addEventListener("click", (e) => {
-  careersFormInPopupWrapper.classList.toggle("open", false);
-});
-sendBtn.addEventListener("click", onSendFormClick);
+  const careersForm = document.getElementById("careers__apply__form");
+  const careersNameInput = careersForm.name;
+  const careersEmail = careersForm.email;
+  const careersPhone = careersForm.phone;
+  const careersLinkedin = careersForm.linkedin;
+  const careersAgreement = careersForm.agreement;
+  const careersAgreementLabel = careersForm.querySelector(
+    "label[for=careersAgreement]"
+  );
 
-function onApplyBtnClick() {
-  careersFormInPopupWrapper.classList.toggle("open");
-}
+  applyBtn.addEventListener("click", onApplyBtnClick);
+  backBtn.addEventListener("click", (e) => {
+    careersFormInPopupWrapper.classList.toggle("open", false);
+  });
+  sendBtn.addEventListener("click", onSendFormClick);
+  careersPhone.addEventListener("input", isPhoneValid);
+  careersLinkedin.addEventListener("input", isLengthValid);
+  careersNameInput.addEventListener("input", isLengthValid);
+  careersEmail.addEventListener("input", () => isEmailValid.call(careersEmail));
 
-function onSendFormClick(e) {
-  e.preventDefault();
-  if (!validateCareersForm()) return;
-  e.target.classList.add("loading");
-  const formData = new FormData(careersForm);
-  console.log("form valid", formData);
-}
-
-function validateCareersForm() {
-  let _errors = 0;
-
-  if (!isLengthValid.call(careersNameInput)) {
-    _errors += 1;
-  }
-  if (!isEmailValid.call(careersEmail)) {
-    _errors += 1;
-  }
-  if (!isPhoneValid.call(careersPhone)) {
-    _errors += 1;
-  }
-  if (!isLengthValid.call(careersLinkedin)) {
-    _errors += 1;
-  }
-  if (!isCheckboxChecked.call(careersAgreement)) {
-    _errors += 1;
+  careersAgreement.addEventListener("change", () =>
+    isCheckboxChecked.call(careersAgreement, careersAgreementLabel)
+  );
+  function onApplyBtnClick() {
+    careersFormInPopupWrapper.classList.toggle("open");
   }
 
-  if (_errors === 0) {
-    return true;
-  } else {
+  function onSendFormClick(e) {
+    e.preventDefault();
+    if (!validateCareersForm()) return;
+    const button = e.target;
+    button.classList.add("loading");
+    $.ajax({
+      type: "POST",
+      url: "/uniMail-master/script/mail.php", //Change
+      data: $(careersForm).serialize(),
+    })
+      .done(function () {
+        alert("Thank you!");
+        // Done Functions
+        $(careersForm).trigger("reset");
+        button.classList.remove("loading");
+      })
+      .fail((e) => {
+        console.warn(e);
+        button.classList.remove("loading");
+        alert("Error! Try later");
+      });
     return false;
   }
-}
+
+  function validateCareersForm() {
+    let _errors = 0;
+
+    if (!isLengthValid.call(careersNameInput)) {
+      _errors += 1;
+    }
+    if (!isEmailValid.call(careersEmail)) {
+      _errors += 1;
+    }
+    if (!isPhoneValid.call(careersPhone)) {
+      _errors += 1;
+    }
+    if (!isLengthValid.call(careersLinkedin)) {
+      _errors += 1;
+    }
+    if (!isCheckboxChecked.call(careersAgreement, careersAgreementLabel)) {
+      _errors += 1;
+    }
+
+    if (_errors === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+} catch (error) {}
 
 //services accordeon
 
-const accordButtons = document.querySelectorAll(".services__link_svg-wrapper");
+try {
+  const accordButtons = document.querySelectorAll(
+    ".services__link_svg-wrapper"
+  );
 
-accordButtons.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    const clickedEl = e.target;
-    if (!clickedEl.parentElement.classList.contains("open")) {
-      accordButtons.forEach((item) => {
-        item.parentElement.classList.remove("open");
-      });
-    }
-    clickedEl.parentElement.classList.toggle("open");
+  accordButtons.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const clickedEl = e.target;
+      if (!clickedEl.parentElement.classList.contains("open")) {
+        accordButtons.forEach((item) => {
+          item.parentElement.classList.remove("open");
+        });
+      }
+      clickedEl.parentElement.classList.toggle("open");
+    });
   });
-});
-
-} 
-catch(e) {
-console.warn('unused js was skipped')
-}
+} catch (error) {}

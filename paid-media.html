@@ -33,295 +33,6 @@
   </head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
   <body>
-    <!--  <style>
-      body {
-        overflow: hidden;
-      }
-      @keyframes animateLine1 {
-        from {
-          width: 0px;
-        }
-        to {
-          width: 200px;
-        }
-      }
-      @keyframes animateLine2 {
-        from {
-          width: 0px;
-        }
-        to {
-          width: 200px;
-        }
-      }
-      @keyframes animateLine3 {
-        from {
-          height: 0px;
-        }
-        to {
-          height: 250px;
-        }
-      }
-    </style>
-    <div
-      class="page-preloader"
-      id="animation-container"
-      style="
-        position: fixed;
-        z-index: 110;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #121212;
-      ">
-      <div
-        class="page-preloader__animation"
-        style="
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 400px;
-          height: 400px;
-          transform: translate3d(-50%, -50%, 0px) scaleX(1) skewY(0deg);
-        ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 400 400"
-          width="400"
-          height="400"
-          preserveAspectRatio="xMidYMid meet"
-          style="width: 100%; height: 100%">
-          <defs>
-            <clipPath id="animationMask_TKY2kPzJ5X">
-              <rect width="400" height="400" x="0" y="0"></rect>
-            </clipPath>
-            <clipPath id="cp_92uKz19w">
-              <path d="M0,0 L400,0 L400,400 L0,400z"></path>
-            </clipPath>
-            <filter
-              id="6yXJOlrUsj"
-              filterUnits="objectBoundingBox"
-              x="0%"
-              y="0%"
-              width="100%"
-              height="100%">
-              <feColorMatrix
-                type="matrix"
-                color-interpolation-filters="sRGB"
-                values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1"></feColorMatrix>
-            </filter>
-            <mask id="ly_fQducvz1rx" mask-type="alpha">
-              <g filter="url(#6yXJOlrUsj)">
-                <rect
-                  width="400"
-                  height="400"
-                  x="0"
-                  y="0"
-                  fill="#ffffff"
-                  opacity="0"></rect>
-                <g
-                  transform="matrix(1,0,0,1,200,380)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,-180)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M22.5,-22.5 C22.5,-22.5 22.5,22.5 22.5,22.5 C22.5,22.5 -22.5,22.5 -22.5,22.5 C-22.5,22.5 -22.5,-22.5 -22.5,-22.5 C-22.5,-22.5 22.5,-22.5 22.5,-22.5z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M22.5,-22.5 C22.5,-22.5 22.5,22.5 22.5,22.5 C22.5,22.5 -22.5,22.5 -22.5,22.5 C-22.5,22.5 -22.5,-22.5 -22.5,-22.5 C-22.5,-22.5 22.5,-22.5 22.5,-22.5z"></path>
-                  </g>
-                </g>
-              </g>
-            </mask>
-            <filter
-              id="5VFjtFrSV5"
-              filterUnits="objectBoundingBox"
-              x="0%"
-              y="0%"
-              width="100%"
-              height="100%">
-              <feColorMatrix
-                type="matrix"
-                color-interpolation-filters="sRGB"
-                values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1"></feColorMatrix>
-            </filter>
-            <mask id="ly_TSbldnIWUX" mask-type="alpha">
-              <g filter="url(#5VFjtFrSV5)">
-                <rect
-                  width="400"
-                  height="400"
-                  x="0"
-                  y="0"
-                  fill="#ffffff"
-                  opacity="0"></rect>
-                <g
-                  transform="matrix(1,0,0,1,200,200)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-            </mask>
-          </defs>
-          <g clip-path="url(#animationMask_TKY2kPzJ5X)">
-            <g
-              clip-path="url(#cp_92uKz19w)"
-              transform="matrix(-1,0,0,-1,400,400)"
-              opacity="1">
-              <g mask="url(#ly_TSbldnIWUX)">
-                <g
-                  transform="matrix(1,0,0,1,200,200)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-              <g mask="url(#ly_fQducvz1rx)">
-                <g
-                  transform="matrix(1,0,0,1,200,380)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,-180)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <div
-        class="page-preloader__progress-bar page-preloader__progress-bar_top"
-        style="
-          position: absolute;
-          top: calc(50% - 50px);
-          left: calc(50% - 100px);
-          height: 1px;
-          transform-origin: 100% 0;
-          background: #fff;
-          animation: animateLine1 5s forwards;
-          animation-delay: 3.7s;
-        ">
-        <div class="rect" style="transform: scaleX(1)"></div>
-      </div>
-      <div
-        class="page-preloader__progress-bar page-preloader__progress-bar_bottom"
-        style="
-          position: absolute;
-          top: calc(50% + 50px);
-          left: calc(50% + 100px);
-          height: 1px;
-          transform: rotate(180deg);
-          transform-origin: 0 0;
-          background: #fff;
-          animation: animateLine2 5s forwards;
-          animation-delay: 3.7s;
-        ">
-        <div class="rect" style="transform: scaleX(1)"></div>
-      </div>
-      <div
-        class="page-preloader__drop-line"
-        style="
-          width: 1px;
-          height: 0px;
-          animation: animateLine3 5s forwards;
-          animation-delay: 3.7s;
-          position: absolute;
-          background: #fff;
-          left: 50%;
-          bottom: 0;
-        "></div>
-    </div>
-    <script class="animationsJs">
-      var animation = bodymovin.loadAnimation({
-        container: document.getElementById("animation-container"),
-
-        path: "img/preloader/preloader.json",
-
-        renderer: "svg",
-
-        loop: false,
-
-        autoplay: true,
-
-        name: "Demo Animation",
-      });
-      setTimeout(() => {
-        const elToDelete = document.querySelector(
-          '[clip-path="url(#__lottie_element_4)"]'
-        );
-        elToDelete.style.transition = "all ease .2s";
-        elToDelete.style.opacity = "0";
-      }, 3700);
-
-      setTimeout(() => {
-        const animationContainer = document.querySelector(
-          "#animation-container"
-        );
-        animationContainer.style.transition = "all ease .3s";
-        animationContainer.style.opacity = "0";
-        setTimeout(() => {
-          animationContainer.remove();
-          document.querySelector(".animationsJs").remove();
-        }, 400);
-      }, 7900);
-    </script> -->
     <header class="header" id="header">
       <div class="header__content">
         <div class="header__logo">
@@ -509,26 +220,9 @@
       </div>
     </header>
     <main id="fullpage" class="sections fullpage-wrapper">
-      <!-- home -->
-      <div class="section screen" data-anchor="Home">
-        <div class="screen__content">
-          <div class="screen__image">
-            <video
-              src="img/home/home_video.mp4"
-              autoplay
-              muted
-              loop
-              playsinline></video>
-            <!--  <picture>
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="img/home/second_screen_img-l.png" />
-                    <img src="img/home/second_screen_img-s.png" alt="sand" />
-                  </picture> -->
-          </div>
-        </div>
-      </div>
-      <div class="section screen" data-anchor="About-us">
+      <!-- paid media -->
+
+      <div class="section screen" data-anchor="paid-media">
         <div class="screen__content">
           <div class="screen__text">
             <div class="screen__text_block">
@@ -536,157 +230,356 @@
                 class="h4-semiBold-l h4-semiBold-s section-title"
                 data-aos="custom-fade-up"
                 data-aos-delay="300">
-                ABOUT US
-              </h2>
-              <div
-                class="h1 mb-24"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                ACCELERATING GROWTH AT THE NEW INTERSECTION OF MEDIA
-              </div>
-              <div
-                class="body mb-16"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                Our unique understanding of the intersection of culture,
-                content, data, and technology powers how we build brands out of
-                every moment of connection.
-              </div>
-              <div
-                class="body mb-s-28 mb-l-60"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                For today, and for tomorrow.
-              </div>
-              <a href="#" data-aos="custom-fade-up" data-aos-delay="600">
-                <div class="btn">WELCOME TO SOL ECOM INC</div>
-              </a>
-            </div>
-          </div>
-          <div class="screen__image">
-            <picture>
-              <source media="(min-width: 768px)" srcset="img/home/1-l.png" />
-              <img src="img/home/1-s.png" alt="sand" />
-            </picture>
-          </div>
-        </div>
-      </div>
-      <div class="section screen section__what-we-do" data-anchor="What-we-do">
-        <div class="screen__content">
-          <div class="screen__text what-we-do__wrapper">
-            <div class="screen__text_block">
-              <h2
-                class="h4-semiBold-l h4-semiBold-s section-title"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                WHAT WE DO
-              </h2>
-              <div
-                class="h1 mb-s-24 mb-l-32"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                END-TO-END EXCELLENCE
-              </div>
-              <div
-                class="body mb-l-60"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                We are designed to deliver growth across the entire media
-                spectrum, adapting rapidly to consumer behaviour through a
-                performance mindset.
-              </div>
-              <a
-                href="#"
-                class="d-l"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                <div class="btn">WHAT WE DO</div>
-              </a>
-            </div>
-            <div
-              class="screen__text_block what-we-do__list_block"
-              data-aos="custom-animation-up"
-              data-aos-delay="300"
-              data-aos-duration="1000">
-              <ul class="what-we-do mb-s-40">
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >PAID MEDIA</a
-                  >
-                </li>
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >EARNED & OWNED MEDIA</a
-                  >
-                </li>
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >DIGITAL INTELLIGENCE</a
-                  >
-                </li>
-              </ul>
-              <a href="#" class="d-s">
-                <div class="btn">WHAT WE DO</div>
-              </a>
-            </div>
-          </div>
-          <div class="screen__image">
-            <picture>
-              <source media="(min-width: 768px)" srcset="img/home/2-l.png" />
-              <img src="img/home/2-s.png" alt="visual art" />
-            </picture>
-          </div>
-        </div>
-      </div>
-      <div class="section screen" data-anchor="Join-us">
-        <div class="screen__content">
-          <div class="screen__text">
-            <div class="screen__text_block">
-              <h2
-                class="h4-semiBold-l h4-semiBold-s section-title"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                JOIN US
+                PAID MEDIA
               </h2>
               <div
                 class="h1 mb-24 mb-l-32"
                 data-aos="custom-fade-up"
                 data-aos-delay="300">
-                WE ARE BORN <br />
-                TO PERFORM, <br />
-                ARE YOU?
+                What’s the best way to acheive your business outcomes?
               </div>
-              <div
-                class="body mb-s-40 mb-l-60 mw-456"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                We’re looking for you, dream maker. Do you have a passion for
-                advertising, and always asking “What if?” Come work with people
-                who do good, for all.
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                specific audiences across channels. Your customers don’t care
+                about channel, they care about getting value. Your marketing
+                should work in every channel your business is in. Sol Ecom Inc’s
+                paid media plans are built to help you achieve your unique
+                business objectives and institute an advanced attribution model
+                that measures your true performance.
               </div>
-              <button
-                aria-label="button"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                <div class="btn">EXPLORE NOW</div>
-              </button>
             </div>
           </div>
           <div class="screen__image">
             <picture>
-              <source media="(min-width: 768px)" srcset="img/home/3-l.png" />
-              <img src="img/home/3-s.png" alt="communication" />
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/1-l.png" />
+              <img
+                src="img/paid-media/1-s.png"
+                alt="woman"
+                class="obj-pos-top-l" />
             </picture>
           </div>
         </div>
       </div>
-      <!-- home -->
+      <div class="section screen" data-anchor="paid-search">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                PAID SEARCH
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Action-Driven Paid Search: Accelerating Conversion Paths
+              </div>
+              <div
+                class="body mb-l-16"
+                data-aos="custom-fade-up"
+                data-aos-delay="600">
+                Our team builds powerful, data-driven paid search strategy that
+                combines best-in-class expertise and innovative tech, works in
+                tandem with your other channels, and drives growth across the
+                funnel.
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Paid search captures demand that’s driven from other channels
+                and pushes consumers to action at the end of their path to
+                conversion.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/2-l.png" />
+              <img src="img/paid-media/2-s.png" alt="lines" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div
+        class="section screen section__what-we-do"
+        data-anchor="working-in-tandem">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Working In Tandem
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Omnichannel Media Planning</li>
+                <li>Personalized Touchpoints Across Journey</li>
+                <li>Online-To-Offline Strategies & Reporting</li>
+                <li>Sol Ecom Inc Attribution To Align On Results</li>
+                <li>Live Dashboards Across All Channels</li>
+                <li>Account Directors Guiding Growth</li>
+                <li>Insights & Testing Shared With Entire Ecosystem</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/3-l.png" />
+              <img src="img/paid-media/3-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="paid-social">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                PAID SOCIAL
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Paid social gives your business guaranteed reach
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Paid social media ensures that your campaigns get seen. You’re
+                essentially paying for your audience’s undivided attention.
+                Consider that 28% of consumers discover new products directly
+                through social media, with that number skewing higher for
+                millennials and Gen Z. If nothing else, ads are a surefire way
+                to introduce your brand to new customers and grab the attention
+                of former ones without being restricted by an algorithm.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/4-l.png" />
+              <img
+                src="img/paid-media/4-s.png"
+                alt="woman"
+                class="obj-pos-top-l" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen section__what-we-do" data-anchor="our-mission">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Social Success: Your Path to Profitability
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <p class="body">
+                We help create your unique brand image and reach a wide audience
+                through popular social media platforms. Our experts develop
+                targeted advertising strategies based on audience interests,
+                preferences, and online behavior. We specialize in social media
+                and can guide you towards success and profitability. Our
+                tailored strategies consider your goals, budget, and target
+                audience characteristics.
+              </p>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/5-l.png" />
+              <img src="img/paid-media/5-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="programmatic">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                PROGRAMMATIC
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Programmatic Advertising
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Getting programmatic advertising right means looking at the big
+                picture; we have a cross-channel team that will make the most of
+                your media budget to achieve your business objectives. Instead
+                of siloing our teams according to channel, Sol Ecom Inc’s
+                programmatic team is trained in all ad formats and networks;
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/6-l.png" />
+              <img src="img/paid-media/6-s.png" alt="woman" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div
+        class="section screen section__what-we-do"
+        data-anchor="we-will-help">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                We will help you
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Activate across all available media formats</li>
+                <li>Re-engage first party audience lists and segment users</li>
+                <li>
+                  Deliver personalized messaging across channels, media formats,
+                  and devices
+                </li>
+                <li>
+                  Track, buy, and analyze media across display, video, audio,
+                  and streaming video screens
+                </li>
+                <li>Integrate strategy with search and social initiatives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/7-l.png" />
+              <img src="img/paid-media/7-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="performance-creative">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block m-w-456">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                PERFORMANCE CREATIVE
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Best-In-Class Creative That Powers Growth
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Your marketing is the face your brand shows the world. We
+                combine storytelling prowess with best-in-class creative
+                capabilities to make sure your brand stands out from the
+                competition and that every campaign contributes to your business
+                objectives.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/8-l.png" />
+              <img src="img/paid-media/8-s.png" alt="woman" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div
+        class="section screen section__what-we-do"
+        data-anchor="capabilities">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Our unique capabilities include
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>
+                  Powerful data analysis to inform pre-production concept
+                  development
+                </li>
+                <li>Best-in-class on the ground physical production</li>
+                <li>
+                  Nimble post-production, featuring state-of-the-art VFX, color,
+                  sound, and 3D modeling
+                </li>
+                <li>Cross-channel asset delivery and deployment</li>
+                <li>
+                  Testing methodology and performance analysis to inform future
+                  iteration
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/paid-media/9-l.png" />
+              <img src="img/paid-media/9-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <!-- paid media -->
       <footer class="section screen fp-auto-height footer" data-anchor="footer">
         <div class="screen__content footer__content">
           <div class="footer__body">

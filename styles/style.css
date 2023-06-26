@@ -421,6 +421,7 @@ gap: 8px;
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  background: var(--black);
 }
 
 .header__logo .logo {
@@ -1346,6 +1347,9 @@ services
 .services__link__wrapper {
   display: flex;
   position: relative;
+}
+.services__link__wrapper a {
+  z-index: 1;
 }
 .services__link__wrapper > div {
   text-transform: uppercase;

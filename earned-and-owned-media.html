@@ -33,295 +33,6 @@
   </head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
   <body>
-    <!--  <style>
-      body {
-        overflow: hidden;
-      }
-      @keyframes animateLine1 {
-        from {
-          width: 0px;
-        }
-        to {
-          width: 200px;
-        }
-      }
-      @keyframes animateLine2 {
-        from {
-          width: 0px;
-        }
-        to {
-          width: 200px;
-        }
-      }
-      @keyframes animateLine3 {
-        from {
-          height: 0px;
-        }
-        to {
-          height: 250px;
-        }
-      }
-    </style>
-    <div
-      class="page-preloader"
-      id="animation-container"
-      style="
-        position: fixed;
-        z-index: 110;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #121212;
-      ">
-      <div
-        class="page-preloader__animation"
-        style="
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 400px;
-          height: 400px;
-          transform: translate3d(-50%, -50%, 0px) scaleX(1) skewY(0deg);
-        ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 400 400"
-          width="400"
-          height="400"
-          preserveAspectRatio="xMidYMid meet"
-          style="width: 100%; height: 100%">
-          <defs>
-            <clipPath id="animationMask_TKY2kPzJ5X">
-              <rect width="400" height="400" x="0" y="0"></rect>
-            </clipPath>
-            <clipPath id="cp_92uKz19w">
-              <path d="M0,0 L400,0 L400,400 L0,400z"></path>
-            </clipPath>
-            <filter
-              id="6yXJOlrUsj"
-              filterUnits="objectBoundingBox"
-              x="0%"
-              y="0%"
-              width="100%"
-              height="100%">
-              <feColorMatrix
-                type="matrix"
-                color-interpolation-filters="sRGB"
-                values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1"></feColorMatrix>
-            </filter>
-            <mask id="ly_fQducvz1rx" mask-type="alpha">
-              <g filter="url(#6yXJOlrUsj)">
-                <rect
-                  width="400"
-                  height="400"
-                  x="0"
-                  y="0"
-                  fill="#ffffff"
-                  opacity="0"></rect>
-                <g
-                  transform="matrix(1,0,0,1,200,380)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,-180)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M22.5,-22.5 C22.5,-22.5 22.5,22.5 22.5,22.5 C22.5,22.5 -22.5,22.5 -22.5,22.5 C-22.5,22.5 -22.5,-22.5 -22.5,-22.5 C-22.5,-22.5 22.5,-22.5 22.5,-22.5z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M22.5,-22.5 C22.5,-22.5 22.5,22.5 22.5,22.5 C22.5,22.5 -22.5,22.5 -22.5,22.5 C-22.5,22.5 -22.5,-22.5 -22.5,-22.5 C-22.5,-22.5 22.5,-22.5 22.5,-22.5z"></path>
-                  </g>
-                </g>
-              </g>
-            </mask>
-            <filter
-              id="5VFjtFrSV5"
-              filterUnits="objectBoundingBox"
-              x="0%"
-              y="0%"
-              width="100%"
-              height="100%">
-              <feColorMatrix
-                type="matrix"
-                color-interpolation-filters="sRGB"
-                values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1"></feColorMatrix>
-            </filter>
-            <mask id="ly_TSbldnIWUX" mask-type="alpha">
-              <g filter="url(#5VFjtFrSV5)">
-                <rect
-                  width="400"
-                  height="400"
-                  x="0"
-                  y="0"
-                  fill="#ffffff"
-                  opacity="0"></rect>
-                <g
-                  transform="matrix(1,0,0,1,200,200)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-            </mask>
-          </defs>
-          <g clip-path="url(#animationMask_TKY2kPzJ5X)">
-            <g
-              clip-path="url(#cp_92uKz19w)"
-              transform="matrix(-1,0,0,-1,400,400)"
-              opacity="1">
-              <g mask="url(#ly_TSbldnIWUX)">
-                <g
-                  transform="matrix(1,0,0,1,200,200)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-              <g mask="url(#ly_fQducvz1rx)">
-                <g
-                  transform="matrix(1,0,0,1,200,380)"
-                  opacity="1"
-                  style="user-select: none">
-                  <g
-                    opacity="1"
-                    transform="matrix(0.7071,0.7071,-0.7071,0.7071,0,-180)">
-                    <path
-                      fill="rgb(255,255,255)"
-                      fill-opacity="1"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                    <path
-                      stroke-linecap="butt"
-                      stroke-linejoin="miter"
-                      fill-opacity="0"
-                      stroke-miterlimit="4"
-                      stroke="rgb(255,255,255)"
-                      stroke-opacity="1"
-                      stroke-width="0"
-                      d="M0 0 M25,-25 C25,-25 25,25 25,25 C25,25 -25,25 -25,25 C-25,25 -25,-25 -25,-25 C-25,-25 25,-25 25,-25z"></path>
-                  </g>
-                </g>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <div
-        class="page-preloader__progress-bar page-preloader__progress-bar_top"
-        style="
-          position: absolute;
-          top: calc(50% - 50px);
-          left: calc(50% - 100px);
-          height: 1px;
-          transform-origin: 100% 0;
-          background: #fff;
-          animation: animateLine1 5s forwards;
-          animation-delay: 3.7s;
-        ">
-        <div class="rect" style="transform: scaleX(1)"></div>
-      </div>
-      <div
-        class="page-preloader__progress-bar page-preloader__progress-bar_bottom"
-        style="
-          position: absolute;
-          top: calc(50% + 50px);
-          left: calc(50% + 100px);
-          height: 1px;
-          transform: rotate(180deg);
-          transform-origin: 0 0;
-          background: #fff;
-          animation: animateLine2 5s forwards;
-          animation-delay: 3.7s;
-        ">
-        <div class="rect" style="transform: scaleX(1)"></div>
-      </div>
-      <div
-        class="page-preloader__drop-line"
-        style="
-          width: 1px;
-          height: 0px;
-          animation: animateLine3 5s forwards;
-          animation-delay: 3.7s;
-          position: absolute;
-          background: #fff;
-          left: 50%;
-          bottom: 0;
-        "></div>
-    </div>
-    <script class="animationsJs">
-      var animation = bodymovin.loadAnimation({
-        container: document.getElementById("animation-container"),
-
-        path: "img/preloader/preloader.json",
-
-        renderer: "svg",
-
-        loop: false,
-
-        autoplay: true,
-
-        name: "Demo Animation",
-      });
-      setTimeout(() => {
-        const elToDelete = document.querySelector(
-          '[clip-path="url(#__lottie_element_4)"]'
-        );
-        elToDelete.style.transition = "all ease .2s";
-        elToDelete.style.opacity = "0";
-      }, 3700);
-
-      setTimeout(() => {
-        const animationContainer = document.querySelector(
-          "#animation-container"
-        );
-        animationContainer.style.transition = "all ease .3s";
-        animationContainer.style.opacity = "0";
-        setTimeout(() => {
-          animationContainer.remove();
-          document.querySelector(".animationsJs").remove();
-        }, 400);
-      }, 7900);
-    </script> -->
     <header class="header" id="header">
       <div class="header__content">
         <div class="header__logo">
@@ -509,184 +220,413 @@
       </div>
     </header>
     <main id="fullpage" class="sections fullpage-wrapper">
-      <!-- home -->
-      <div class="section screen" data-anchor="Home">
-        <div class="screen__content">
-          <div class="screen__image">
-            <video
-              src="img/home/home_video.mp4"
-              autoplay
-              muted
-              loop
-              playsinline></video>
-            <!--  <picture>
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="img/home/second_screen_img-l.png" />
-                    <img src="img/home/second_screen_img-s.png" alt="sand" />
-                  </picture> -->
-          </div>
-        </div>
-      </div>
-      <div class="section screen" data-anchor="About-us">
-        <div class="screen__content">
-          <div class="screen__text">
-            <div class="screen__text_block">
-              <h2
-                class="h4-semiBold-l h4-semiBold-s section-title"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                ABOUT US
-              </h2>
-              <div
-                class="h1 mb-24"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                ACCELERATING GROWTH AT THE NEW INTERSECTION OF MEDIA
-              </div>
-              <div
-                class="body mb-16"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                Our unique understanding of the intersection of culture,
-                content, data, and technology powers how we build brands out of
-                every moment of connection.
-              </div>
-              <div
-                class="body mb-s-28 mb-l-60"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                For today, and for tomorrow.
-              </div>
-              <a href="#" data-aos="custom-fade-up" data-aos-delay="600">
-                <div class="btn">WELCOME TO SOL ECOM INC</div>
-              </a>
-            </div>
-          </div>
-          <div class="screen__image">
-            <picture>
-              <source media="(min-width: 768px)" srcset="img/home/1-l.png" />
-              <img src="img/home/1-s.png" alt="sand" />
-            </picture>
-          </div>
-        </div>
-      </div>
-      <div class="section screen section__what-we-do" data-anchor="What-we-do">
+      <!-- earned and owned media -->
+      <div class="section screen" data-anchor="earned-and-owned-media">
         <div class="screen__content">
           <div class="screen__text what-we-do__wrapper">
-            <div class="screen__text_block">
+            <div class="screen__text_block m-w-456">
               <h2
                 class="h4-semiBold-l h4-semiBold-s section-title"
                 data-aos="custom-fade-up"
                 data-aos-delay="300">
-                WHAT WE DO
-              </h2>
-              <div
-                class="h1 mb-s-24 mb-l-32"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                END-TO-END EXCELLENCE
-              </div>
-              <div
-                class="body mb-l-60"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                We are designed to deliver growth across the entire media
-                spectrum, adapting rapidly to consumer behaviour through a
-                performance mindset.
-              </div>
-              <a
-                href="#"
-                class="d-l"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                <div class="btn">WHAT WE DO</div>
-              </a>
-            </div>
-            <div
-              class="screen__text_block what-we-do__list_block"
-              data-aos="custom-animation-up"
-              data-aos-delay="300"
-              data-aos-duration="1000">
-              <ul class="what-we-do mb-s-40">
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >PAID MEDIA</a
-                  >
-                </li>
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >EARNED & OWNED MEDIA</a
-                  >
-                </li>
-                <li class="what-we-do__li">
-                  <a
-                    class="what-we-do__link body-semiBold h4-semiBold-l link"
-                    href="#"
-                    >DIGITAL INTELLIGENCE</a
-                  >
-                </li>
-              </ul>
-              <a href="#" class="d-s">
-                <div class="btn">WHAT WE DO</div>
-              </a>
-            </div>
-          </div>
-          <div class="screen__image">
-            <picture>
-              <source media="(min-width: 768px)" srcset="img/home/2-l.png" />
-              <img src="img/home/2-s.png" alt="visual art" />
-            </picture>
-          </div>
-        </div>
-      </div>
-      <div class="section screen" data-anchor="Join-us">
-        <div class="screen__content">
-          <div class="screen__text">
-            <div class="screen__text_block">
-              <h2
-                class="h4-semiBold-l h4-semiBold-s section-title"
-                data-aos="custom-fade-up"
-                data-aos-delay="300">
-                JOIN US
+                EARNED & OWNED MEDIA
               </h2>
               <div
                 class="h1 mb-24 mb-l-32"
                 data-aos="custom-fade-up"
                 data-aos-delay="300">
-                WE ARE BORN <br />
-                TO PERFORM, <br />
-                ARE YOU?
+                Owned & Earned Success
               </div>
-              <div
-                class="body mb-s-40 mb-l-60 mw-456"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                We’re looking for you, dream maker. Do you have a passion for
-                advertising, and always asking “What if?” Come work with people
-                who do good, for all.
-              </div>
-              <button
-                aria-label="button"
-                data-aos="custom-fade-up"
-                data-aos-delay="600">
-                <div class="btn">EXPLORE NOW</div>
-              </button>
+            </div>
+            <div
+              class="screen__text_block m-w-456"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <p class="body">
+                Your business depends on owned media, but outperforming
+                competitors alone won't yield organic results. We create
+                relevant and valuable content for your customers. However,
+                earned media channels are crucial. With expertise in SEO,
+                content marketing, and data-driven decision making, we build
+                stronger customer relationships and drive impactful conversions
+                in trusted channels.
+              </p>
             </div>
           </div>
           <div class="screen__image">
             <picture>
-              <source media="(min-width: 768px)" srcset="img/home/3-l.png" />
-              <img src="img/home/3-s.png" alt="communication" />
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/1-l.png" />
+              <img src="img/earned-and-owned-media/1-s.png" alt="woman" />
             </picture>
           </div>
         </div>
       </div>
-      <!-- home -->
+      <div class="section screen" data-anchor="seo">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                seo
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                SEO SUCCESS
+              </div>
+
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                We offer a comprehensive solution for search engine optimization
+                (SEO) that significantly increases traffic and improves sales of
+                your products and services. Search is evolving, and with the
+                emergence of new technologies like voice or local search,
+                organic search results on Google have become more important than
+                ever.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/2-l.png" />
+              <img src="img/earned-and-owned-media/2-s.png" alt="mirrors" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen section__what-we-do" data-anchor="we-do">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                As Search Evolves, <br class="d-l" />
+                So Do We
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Search algorithms from Google to Amazon are changing all the
+                time: that’s why we embrace change and keep learning from the
+                data. And we’ll help your business stay on the cutting edge.
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Local SEO</li>
+                <li>Site Migrations</li>
+                <li>YouTube SEO</li>
+                <li>Conversion Rate Optimization</li>
+                <li>International SEO</li>
+                <li>Voice Search</li>
+                <li>App Store Optimization</li>
+                <li>SEO Development Services</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/3-l.png" />
+              <img src="img/earned-and-owned-media/3-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="content-marketing">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block m-w-456">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Content Marketing
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Outside-The-Box Content Marketing
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Exceptional content drives major performance wins. Our team of
+                content strategists accelerate brand recognition and brand
+                loyalty through discovery, planning, and tactical execution.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/4-l.png" />
+              <img
+                src="img/earned-and-owned-media/4-s.png"
+                alt="woman"
+                class="obj-pos-top-l" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div
+        class="section screen section__what-we-do"
+        data-anchor="content-strategy">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Full-Funnel Content Strategy
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Our team develops data-rooted brand messaging to reach audiences
+                at every touchpoint of the consumer lifecycle.
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Interactive Experiences</li>
+                <li>Content Creation</li>
+                <li>Editorial Planning & Calendar</li>
+                <li>Amplification & Distribution</li>
+                <li>Sales Enablement</li>
+                <li>Strategic Consulting</li>
+                <li>Visual Asset Creation</li>
+                <li>Social Media</li>
+                <li>Videos & Blogs</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/5-l.png" />
+              <img src="img/earned-and-owned-media/5-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="email-marketing">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block m-w-456">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Email Marketing
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                It’s Time To Deliver
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Email is the foundation of your CRM and marketing automation
+                strategy. It’s the hub of personalized messaging across the
+                entire customer lifecycle and we’ll ensure it’s your highest ROI
+                channel.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/6-l.png" />
+              <img src="img/earned-and-owned-media/6-s.png" alt="woman" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen section__what-we-do" data-anchor="strategy">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div
+                class="h1 mb-s-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Crafting A Strategy Built On Moments
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                We’re the strategy behind the sends and clicks. Whether it’s
+                warming up your IP or cutting down send size to actually boost
+                engagement, get an expert team behind the data and segmentation.
+                Here are some of the things we do:
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Email Program Auditing</li>
+                <li>Lifecycle Marketing</li>
+                <li>CRM & Email Strategy Consulting</li>
+                <li>Email Production Services</li>
+                <li>Full-Service Channel Management</li>
+                <li>Batch & Blast Campaigns</li>
+                <li>Performance Creative</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/7-l.png" />
+              <img src="img/earned-and-owned-media/7-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="influencer-marketing">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block m-w-456">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Influencer Marketing
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Activate Your Networks
+              </div>
+              <div
+                class="body mb-16"
+                data-aos="custom-fade-up"
+                data-aos-delay="600">
+                Influencers unlock buying power. To turn that power into
+                revenue, we create a one-of-a-kind cohesive strategy while
+                developing and guiding partnerships that will make an impact on
+                your customers.
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                We find the right fit by zeroing in on your ideal audience and
+                matching your brand to the influencers that have the right
+                expertise, exposure, recognition, and potential to reach new
+                audiences.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/8-l.png" />
+              <img src="img/earned-and-owned-media/8-s.png" alt="woman" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen section__what-we-do" data-anchor="influencer">
+        <div class="screen__content">
+          <div class="screen__text what-we-do__wrapper">
+            <div class="screen__text_block">
+              <div class="h1" data-aos="custom-fade-up" data-aos-delay="300">
+                Influencer Campaign Essentials
+              </div>
+            </div>
+            <div
+              class="screen__text_block"
+              data-aos="custom-animation-up"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+              <ul class="body paid-media__list">
+                <li>Influencer & Audience Demographics Insights</li>
+                <li>Research & Vetting</li>
+                <li>Creative Concepting & Brief Development</li>
+                <li>Short- & Long-Term Influencer Strategy</li>
+                <li>Influencer Communication & Negotiation</li>
+                <li>Customized Contracts</li>
+                <li>Campaign Execution & Optimization</li>
+                <li>Cross-Channel Influencer Integration</li>
+                <li>Focused & Relevant Messaging</li>
+                <li>Performance Analysis & Recommendations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/9-l.png" />
+              <img src="img/earned-and-owned-media/9-s.png" alt="visual art" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="section screen" data-anchor="digital-experience">
+        <div class="screen__content">
+          <div class="screen__text">
+            <div class="screen__text_block m-w-456">
+              <h2
+                class="h4-semiBold-l h4-semiBold-s section-title"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Digital Experience
+              </h2>
+              <div
+                class="h1 mb-24 mb-l-32"
+                data-aos="custom-fade-up"
+                data-aos-delay="300">
+                Start Your Digital Engine
+              </div>
+              <div
+                class="body mb-16"
+                data-aos="custom-fade-up"
+                data-aos-delay="600">
+                Your website is the most important asset for an ecommerce brand,
+                and it needs to both deliver a flawless customer experience and
+                operate efficiently for your business. We balance innovative,
+                effective UX/UI with operational excellence so your site will
+                drive results.
+              </div>
+              <div class="body" data-aos="custom-fade-up" data-aos-delay="600">
+                Your site doesn’t exist in a vacuum. We make sure that your site
+                seamlessly integrates with the systems your business needs to
+                operate effectively, from CMS to PIM.
+              </div>
+            </div>
+          </div>
+          <div class="screen__image">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="img/earned-and-owned-media/10-l.png" />
+              <img src="img/earned-and-owned-media/10-s.png" alt="woman" />
+            </picture>
+          </div>
+        </div>
+      </div>
+      <!-- earned and owned media -->
       <footer class="section screen fp-auto-height footer" data-anchor="footer">
         <div class="screen__content footer__content">
           <div class="footer__body">
