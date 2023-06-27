@@ -950,7 +950,7 @@ cursor: pointer;
 }
 .careers__apply-form__body {
   padding: 20px 16px 32px 16px;
-  height: 100%;
+  height: calc(100% - var(--header-size));
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -1084,6 +1084,7 @@ background: var(--sublist);
   padding-top: 60px;
   display: block;
   position: static;
+  height: 100%;
 }
 .careers__apply-form__body form {
   max-width: 360px;
