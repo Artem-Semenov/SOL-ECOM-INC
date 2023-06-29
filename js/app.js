@@ -745,7 +745,6 @@ try {
 } catch (error) {}
 
 function showModalAfterFormSubmit(isSuccess) {
-  console.log(isSuccess);
   const modal = document.querySelector("#formSubmitModal");
   const closeBtn = document.querySelector("#formSubmitModalCloseBtn");
   if (modal) {
@@ -764,7 +763,7 @@ function showModalAfterFormSubmit(isSuccess) {
       ).innerHTML = `Sorry... Something went wrong`;
       modal.querySelector(
         ".modal-thanks-desc"
-      ).innerHTML = `Try to refresh page and resubmit the form.`;
+      ).innerHTML = `Try to refresh page and<br class="d-l"> resubmit the form.`;
     }
   }
   modal.classList.toggle("show", true);

@@ -1592,6 +1592,7 @@ transform: rotate(45deg);
   margin-right: auto;
   background: url(/img/icons/modal-success-icon.svg) no-repeat center;
   margin-bottom: 16px;
+  opacity: 0.8;
 }
 
 .modal-thanks-outer.error .modal-thanks-icon {
