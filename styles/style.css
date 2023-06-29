@@ -1285,8 +1285,7 @@ gap: 40px;
   justify-content: space-between;
 }
 .footer_terms {
-  flex-direction: column;
-gap: 10px;
+gap: 40px;
 }
 .cookies {
   padding-left: var(--header-size);
@@ -1510,7 +1509,9 @@ services end
 }
 #fp-nav ul li a.active span {
   background: #FFFFFF;
-  opacity: 0.4
+  opacity: 0.4;
+  height: 8px;
+  width: 8px
 }
 
 #fp-nav.fp-right {
@@ -1518,4 +1519,105 @@ transform: none;
 top: unset;
 bottom: 40px;
 right: 40px;
+}
+
+.modal-thanks-outer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease .3s;
+}
+.modal-thanks-outer.show {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-thanks-bg {
+position: absolute;
+width: 100%;
+height: 100%;
+background: #fff;
+opacity: 0.15;
+}
+.modal-thanks-inner {
+  position: relative;
+  padding: 50px 20px;
+  background: var(--black);
+max-width: 480px;
+text-align: center;
+margin-top: var(--header-size);
+}
+
+.modal-close-btn {
+  margin-left: auto;
+  top: 25px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+}
+.modal-close-btn::before, .modal-close-btn::after  {
+content: "";
+width: 100%;
+height: 10%;
+background: #fff;
+position: absolute;
+}
+
+.modal-close-btn::before {
+transform: rotate(45deg);
+}
+.modal-close-btn::after {
+  transform: rotate(-45deg);
+
+}
+.modal-thanks-icon {
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(/img/icons/modal-success-icon.svg) no-repeat center;
+  margin-bottom: 16px;
+}
+
+.modal-thanks-outer.error .modal-thanks-icon {
+  background: url(/img/icons/modal-error-icon.svg) no-repeat center;
+}
+
+.modal-thanks-title {
+  font-size: 31px;
+  letter-spacing: 0.36px;
+  margin-bottom: 16px;
+}
+.modal-thanks-desc {
+  letter-spacing: 0.46px;
+}
+
+@media (min-width: 1024px) {
+
+  .modal-thanks-inner {
+    padding: 60px;
+margin-top: 0;
+  margin-left: var(--header-size);
+  }
+
+  .modal-thanks-icon {
+  margin-bottom: 32px;
+}
+
+  
 }

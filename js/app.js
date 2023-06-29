@@ -277,14 +277,14 @@ try {
       data: $(form).serialize(),
     })
       .done(function () {
-        alert("Thank you! We will contact you soon!");
+        showModalAfterFormSubmit(true);
         $(form).trigger("reset");
         button.classList.remove("loading");
       })
       .fail((e) => {
         console.warn(e);
+        showModalAfterFormSubmit(false);
         button.classList.remove("loading");
-        alert("Error! Try later please");
       });
     return false;
   }
@@ -685,14 +685,14 @@ try {
       data: $(careersForm).serialize(),
     })
       .done(function () {
-        alert("Thank you! We will contact you soon!");
+        showModalAfterFormSubmit(true);
         $(careersForm).trigger("reset");
         button.classList.remove("loading");
       })
       .fail((e) => {
         console.warn(e);
+        showModalAfterFormSubmit(false);
         button.classList.remove("loading");
-        alert("Error! Try later please");
       });
     return false;
   }
@@ -743,3 +743,39 @@ try {
     });
   });
 } catch (error) {}
+
+function showModalAfterFormSubmit(isSuccess) {
+  console.log(isSuccess);
+  const modal = document.querySelector("#formSubmitModal");
+  const closeBtn = document.querySelector("#formSubmitModalCloseBtn");
+  if (modal) {
+    if (isSuccess) {
+      modal.classList.remove("error");
+      modal.querySelector(
+        ".modal-thanks-title"
+      ).innerHTML = `Thank you for your applying! `;
+      modal.querySelector(
+        ".modal-thanks-desc"
+      ).innerHTML = `We have received your inquiry and will get back to you shortly. `;
+    } else {
+      modal.classList.add("error");
+      modal.querySelector(
+        ".modal-thanks-title"
+      ).innerHTML = `Sorry... Something went wrong`;
+      modal.querySelector(
+        ".modal-thanks-desc"
+      ).innerHTML = `Try to refresh page and resubmit the form.`;
+    }
+  }
+  modal.classList.toggle("show", true);
+  function onClickOutside(e) {
+    if (e.target.classList.contains("modal-thanks-bg")) {
+      modal.classList.toggle("show", false);
+    }
+  }
+
+  document.addEventListener("click", onClickOutside);
+  closeBtn.addEventListener("click", (e) => {
+    modal.classList.toggle("show", false);
+  });
+}
