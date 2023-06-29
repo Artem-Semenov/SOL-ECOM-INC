@@ -61,6 +61,7 @@
     <div
       class="page-preloader"
       id="animation-container"
+      hidden
       style="
         position: fixed;
         z-index: 310;
@@ -285,38 +286,55 @@
         "></div>
     </div>
     <script class="animationsJs">
-      var animation = bodymovin.loadAnimation({
-        container: document.getElementById("animation-container"),
+      if (
+        !document.cookie.match(
+          new RegExp(
+            "(?:^|; )" +
+              "_preloader".replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+              "=([^;]*)"
+          )
+        )
+      ) {
+        document.querySelector(".page-preloader").hidden = false;
+        console.log(document.querySelector(".page-preloader"));
+        var animation = bodymovin.loadAnimation({
+          container: document.getElementById("animation-container"),
 
-        path: "img/preloader/preloader.json",
+          path: "img/preloader/preloader.json",
 
-        renderer: "svg",
+          renderer: "svg",
 
-        loop: false,
+          loop: false,
 
-        autoplay: true,
+          autoplay: true,
 
-        name: "Demo Animation",
-      });
-      setTimeout(() => {
-        const elToDelete = document.querySelector(
-          '[clip-path="url(#__lottie_element_4)"]'
-        );
-        elToDelete.style.transition = "all ease .2s";
-        elToDelete.style.opacity = "0";
-      }, 3700);
-
-      setTimeout(() => {
-        const animationContainer = document.querySelector(
-          "#animation-container"
-        );
-        animationContainer.style.transition = "all ease .3s";
-        animationContainer.style.opacity = "0";
+          name: "Demo Animation",
+        });
         setTimeout(() => {
-          animationContainer.remove();
-          document.querySelector(".animationsJs").remove();
-        }, 400);
-      }, 7900);
+          const elToDelete = document.querySelector(
+            '[clip-path="url(#__lottie_element_4)"]'
+          );
+          elToDelete.style.transition = "all ease .2s";
+          elToDelete.style.opacity = "0";
+        }, 3700);
+
+        setTimeout(() => {
+          const animationContainer = document.querySelector(
+            "#animation-container"
+          );
+          animationContainer.style.transition = "all ease .3s";
+          animationContainer.style.opacity = "0";
+          setTimeout(() => {
+            animationContainer.remove();
+            document.cookie = `_preloader=true; path=/; max-age=360000`;
+            document.querySelector(".animationsJs").remove();
+          }, 400);
+        }, 7900);
+      } else {
+        console.log("else");
+        document.querySelector(".page-preloader").remove();
+        document.querySelector(".animationsJs").remove();
+      }
     </script>
     <header class="header" id="header">
       <div class="header__content">
@@ -510,7 +528,7 @@
         <div class="screen__content">
           <div class="screen__image">
             <video
-              src="img/home/home_video.mp4"
+              src="img/video/sol.mp4"
               autoplay
               muted
               loop

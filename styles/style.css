@@ -239,9 +239,15 @@ position: relative;
 .margin-auto {
   margin: auto;
 }
+.d-none {
+  display: none;
+}
 @media (min-width: 1024px) {
   .obj-pos-top-l {
     object-position: top;
+  }
+  .mb-l-0 {
+    margin-bottom: 0;
   }
   .mb-s-40 {
     margin-bottom: 0;
@@ -325,7 +331,6 @@ letter-spacing: 0.02em;
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 18px;
   justify-content: center;
 }
 
