@@ -128,6 +128,7 @@ const jobsData = {
 };
 
 const anchors = document.querySelectorAll("[data-anchor]");
+const contactsFormWrapper = document.querySelector(".form__wrapper");
 if (anchors.length) {
   new fullpage("#fullpage", {
     licenseKey: "gplv3-license",
@@ -139,7 +140,11 @@ if (anchors.length) {
     fitToSectionDelay: 1000,
     verticalCentered: true,
     normalScrollElements:
-      ".form__wrapper, .header__burger-body, .careers-popup",
+      ".header__burger-body, .careers-popup" +
+      (contactsFormWrapper &&
+      contactsFormWrapper.scrollHeight > window.innerHeight - 152
+        ? ", .form__wrapper"
+        : ""),
     fixedElements: "#header",
     // Navigation
     navigation: true,
@@ -515,22 +520,11 @@ try {
     const clickedSection = e.target.dataset.section;
     const accordBody = this.parentElement.nextElementSibling;
 
-    if (window.innerWidth > 1023) {
-      for (const el of triggersInPopup) {
-        if (el.dataset.section === clickedSection) continue;
-        el.classList.toggle("open", false);
-        el.parentElement.parentElement.classList.toggle("open", false);
-      }
-
-      nodeToInsertArticleOnDesctop.innerHTML =
-        "<ul>" +
-        jobsData[openedJob][clickedSection]
-          .map(
-            (el) => `<li class="h5 body-l">
-   ${el} </li>`
-          )
-          .join("") +
-        "</ul>";
+    for (const el of triggersInPopup) {
+      if (el.dataset.section === clickedSection) continue;
+      el.classList.toggle("open", false);
+      el.parentElement.parentElement.classList.toggle("open", false);
+      el.parentElement.nextElementSibling.style.height = null;
     }
 
     this.classList.toggle("open");
@@ -557,6 +551,18 @@ try {
         }
         accordBody.style.height = null;
       }
+    }
+
+    if (window.innerWidth > 1023) {
+      nodeToInsertArticleOnDesctop.innerHTML =
+        "<ul>" +
+        jobsData[openedJob][clickedSection]
+          .map(
+            (el) => `<li class="h5 body-l">
+   ${el} </li>`
+          )
+          .join("") +
+        "</ul>";
     }
   }
 

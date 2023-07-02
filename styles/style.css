@@ -394,6 +394,7 @@ cursor: pointer;
 .what-we-do__wrapper {
   justify-content: center;
   max-width: 500px;
+  gap: 24px;
   }
   .form__block_wrapper {
 height: fit-content;
@@ -555,9 +556,10 @@ gap: 8px;
 }
 .header__burger-body_arrow svg  {
   transition: transform .3s ease 0s;
+  transform: rotate(180deg);
 }
 .header__burger-body_arrow.open svg {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 .header__burger-body_sub-list {
   width: 100%;
@@ -839,7 +841,7 @@ justify-content: space-between;
 }
 
 .careers__body {
-  padding: 26px 16px;
+  padding: 26px 16px 100px 16px;
   position: relative;
   height: 100%;
   overflow-y: scroll;
@@ -1354,6 +1356,7 @@ services
 .services__link__wrapper {
   display: flex;
   position: relative;
+  padding-right: 40px;
 }
 .services__link__wrapper a {
   z-index: 1;
@@ -1376,9 +1379,10 @@ services
 .services__link_svg-wrapper svg {
   pointer-events: none;
   transition: all ease .3s;
+transform: rotate(180deg);
 }
 .services__link__wrapper.open .services__link_svg-wrapper svg {
-transform: rotate(180deg);
+transform: rotate(0deg);
 }
 .services__link {
   padding-left: 0;
