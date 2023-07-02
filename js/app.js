@@ -784,3 +784,20 @@ function showModalAfterFormSubmit(isSuccess) {
     modal.classList.toggle("show", false);
   });
 }
+
+//video responsive
+
+const videoEl = document.getElementById("videoElement");
+
+function videoResponsive() {
+  if (window.innerWidth > 1023) {
+    videoEl.setAttribute("src", "img/video/sol.mp4");
+  } else {
+    videoEl.setAttribute("src", "img/video/sol-s.mp4");
+  }
+}
+
+if (videoEl) {
+  window.addEventListener("resize", videoResponsive);
+  videoResponsive();
+}
